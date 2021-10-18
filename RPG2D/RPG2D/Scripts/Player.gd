@@ -2,9 +2,11 @@ extends Area2D
 
 var tile_size = 64
 var is_moving = false
- 
+var target = null
+var is_attack_cooldown = false
+
 func _ready():
-    position = position.snapped(Vector2.ONE * tile_size)
+    pass
 
 func _process(delta):
     if !is_moving:
@@ -24,6 +26,15 @@ func _process(delta):
             if !is_obstacle(Vector2.DOWN):
                 $AnimatedSprite.set_animation("walk_down")
                 tween_player(Vector2.DOWN)
+        
+    if target and not is_attack_cooldown:
+        if position.distance_to(target.position) <= 1.42 * tile_size:
+            $Timer.start(2)
+            is_attack_cooldown = true
+            target.take_damage(10)
+
+func set_target(new_target):
+    target = new_target
 
 func is_obstacle(vector):
     $RayCast2D.cast_to = vector * tile_size
@@ -43,3 +54,5 @@ func _on_Tween_tween_all_completed():
     $AnimatedSprite.stop()
     $AnimatedSprite.set_frame(0)
 
+func _on_Timer_timeout():
+    is_attack_cooldown = false

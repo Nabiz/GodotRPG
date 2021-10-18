@@ -8,11 +8,206 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="PanelContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -448.0
+margin_left = -320.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 313.0
+margin_bottom = 1073.0
+
+[node name="GridContainerEq" type="GridContainer" parent="Panel/VBoxContainer"]
+margin_left = 53.0
+margin_right = 253.0
+margin_bottom = 200.0
+size_flags_horizontal = 4
+columns = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/GridContainerEq"]
+margin_right = 200.0
+margin_bottom = 200.0
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer"]
+margin_top = 68.0
+margin_right = 200.0
+margin_bottom = 132.0
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel2" type="Panel" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel3" type="Panel" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel4" type="Panel" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer"]
+margin_left = 68.0
+margin_top = 136.0
+margin_right = 132.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+
+[node name="GridContainerInventory" type="GridContainer" parent="Panel/VBoxContainer"]
+margin_left = 13.0
+margin_top = 204.0
+margin_right = 293.0
+margin_bottom = 556.0
+size_flags_horizontal = 4
+custom_constants/vseparation = 8
+custom_constants/hseparation = 8
+columns = 4
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel2" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 72.0
+margin_right = 136.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel3" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 144.0
+margin_right = 208.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel4" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 216.0
+margin_right = 280.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel5" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_top = 72.0
+margin_right = 64.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel6" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 72.0
+margin_top = 72.0
+margin_right = 136.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel7" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 144.0
+margin_top = 72.0
+margin_right = 208.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel8" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 216.0
+margin_top = 72.0
+margin_right = 280.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel9" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_top = 144.0
+margin_right = 64.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel10" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 72.0
+margin_top = 144.0
+margin_right = 136.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel11" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 144.0
+margin_top = 144.0
+margin_right = 208.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel12" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 216.0
+margin_top = 144.0
+margin_right = 280.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel13" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_top = 216.0
+margin_right = 64.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel14" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 72.0
+margin_top = 216.0
+margin_right = 136.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel15" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 144.0
+margin_top = 216.0
+margin_right = 208.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel16" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 216.0
+margin_top = 216.0
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel17" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_top = 288.0
+margin_right = 64.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel18" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 72.0
+margin_top = 288.0
+margin_right = 136.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel19" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 144.0
+margin_top = 288.0
+margin_right = 208.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel20" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+margin_left = 216.0
+margin_top = 288.0
+margin_right = 280.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 64, 64 )
