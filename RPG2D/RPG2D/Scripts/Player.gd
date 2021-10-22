@@ -6,7 +6,7 @@ var target = null
 var is_attack_cooldown = false
 
 func _ready():
-    pass
+    position = position.snapped(Vector2.ONE * tile_size/2)
 
 func _process(delta):
     if !is_moving:

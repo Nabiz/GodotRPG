@@ -1,9 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/InventorySlot.tscn" type="PackedScene" id=2]
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1472.0
+margin_left = 1600.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -23,10 +27,36 @@ margin_top = 7.0
 margin_right = 313.0
 margin_bottom = 1073.0
 
+[node name="NameLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_left = 121.0
+margin_right = 185.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+text = "Nickname"
+
+[node name="HealthBar" type="ProgressBar" parent="Panel/VBoxContainer"]
+margin_top = 18.0
+margin_right = 306.0
+margin_bottom = 32.0
+
+[node name="ManaBar" type="ProgressBar" parent="Panel/VBoxContainer"]
+margin_top = 36.0
+margin_right = 306.0
+margin_bottom = 50.0
+
+[node name="EqLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_left = 118.0
+margin_top = 54.0
+margin_right = 187.0
+margin_bottom = 68.0
+size_flags_horizontal = 4
+text = "Equipment"
+
 [node name="GridContainerEq" type="GridContainer" parent="Panel/VBoxContainer"]
 margin_left = 53.0
+margin_top = 72.0
 margin_right = 253.0
-margin_bottom = 200.0
+margin_bottom = 272.0
 size_flags_horizontal = 4
 columns = 3
 
@@ -71,143 +101,134 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 4
 
+[node name="InventoryLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_left = 122.0
+margin_top = 276.0
+margin_right = 183.0
+margin_bottom = 290.0
+size_flags_horizontal = 4
+text = "Inventory"
+
 [node name="GridContainerInventory" type="GridContainer" parent="Panel/VBoxContainer"]
 margin_left = 13.0
-margin_top = 204.0
+margin_top = 294.0
 margin_right = 293.0
-margin_bottom = 556.0
+margin_bottom = 646.0
 size_flags_horizontal = 4
 custom_constants/vseparation = 8
 custom_constants/hseparation = 8
 columns = 4
 
-[node name="Panel" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
+[node name="InventorySlot" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 
-[node name="Panel2" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot2" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 72.0
 margin_right = 136.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel3" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot3" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 144.0
 margin_right = 208.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel4" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot4" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 216.0
 margin_right = 280.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel5" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot5" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_top = 72.0
-margin_right = 64.0
 margin_bottom = 136.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel6" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot6" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 72.0
 margin_top = 72.0
 margin_right = 136.0
 margin_bottom = 136.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel7" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot7" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 144.0
 margin_top = 72.0
 margin_right = 208.0
 margin_bottom = 136.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel8" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot8" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 216.0
 margin_top = 72.0
 margin_right = 280.0
 margin_bottom = 136.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel9" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot9" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_top = 144.0
-margin_right = 64.0
 margin_bottom = 208.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel10" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot10" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 72.0
 margin_top = 144.0
 margin_right = 136.0
 margin_bottom = 208.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel11" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot11" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 144.0
 margin_top = 144.0
 margin_right = 208.0
 margin_bottom = 208.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel12" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot12" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 216.0
 margin_top = 144.0
 margin_right = 280.0
 margin_bottom = 208.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel13" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot13" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_top = 216.0
-margin_right = 64.0
 margin_bottom = 280.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel14" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot14" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 72.0
 margin_top = 216.0
 margin_right = 136.0
 margin_bottom = 280.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel15" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot15" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 144.0
 margin_top = 216.0
 margin_right = 208.0
 margin_bottom = 280.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel16" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot16" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 216.0
 margin_top = 216.0
 margin_right = 280.0
 margin_bottom = 280.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel17" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot17" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_top = 288.0
-margin_right = 64.0
 margin_bottom = 352.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel18" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot18" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 72.0
 margin_top = 288.0
 margin_right = 136.0
 margin_bottom = 352.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel19" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot19" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 144.0
 margin_top = 288.0
 margin_right = 208.0
 margin_bottom = 352.0
-rect_min_size = Vector2( 64, 64 )
 
-[node name="Panel20" type="Panel" parent="Panel/VBoxContainer/GridContainerInventory"]
+[node name="InventorySlot20" parent="Panel/VBoxContainer/GridContainerInventory" instance=ExtResource( 2 )]
 margin_left = 216.0
 margin_top = 288.0
 margin_right = 280.0
 margin_bottom = 352.0
-rect_min_size = Vector2( 64, 64 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 650.0
+margin_right = 306.0
+margin_bottom = 670.0
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_right = 77.0
+margin_bottom = 20.0
+text = "Exit Game"
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
