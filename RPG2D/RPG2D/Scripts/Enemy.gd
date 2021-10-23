@@ -32,8 +32,8 @@ func take_damage(attack):
         yield(get_tree().create_timer(0.2), "timeout")
         queue_free()
 
-func _on_Enemy_input_event(viewport, event, shape_idx):
-    if event.is_action_released("ui_right_mouse"):
+func _on_Enemy_input_event(_viewport, event, _shape_idx):
+    if event.is_action_released("ui_mouse_right"):
         if player:
             if player.target != self:
                 $TargetEffect.show()

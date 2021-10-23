@@ -2,10 +2,12 @@ extends Node2D
 
 var tile_size = 64
 var id = 128
-var is_mouse_hold = false
 var player = null
 
 var is_recently_draged = false
+
+var drag_helper = preload("res://Scenes/Utility/DragHelper.tscn")
+var drag_helper_instance
 
 func _ready():
     $Sprite.frame = id
@@ -13,20 +15,9 @@ func _ready():
     if get_node("/root/Node/Player"):
         player = get_node("/root/Node/Player")
 
-func set_id(new_id):
-    id = new_id
-    $Sprite.frame = id
+#global_position = (get_global_mouse_position()-Vector2.ONE * tile_size/2).snapped(Vector2.ONE * tile_size) + Vector2.ONE * tile_size/2
 
-func _on_Item_input_event(viewport, event, shape_idx):
-    if event.is_action_pressed("ui_left_mouse"):
-        is_mouse_hold = true
-
-func _input(event):
-    if is_mouse_hold and event.is_action_released("ui_left_mouse"):
-        is_mouse_hold = false
-        if player:
-            if position.distance_to(player.position) < 1.42 * tile_size:
-                global_position = (get_global_mouse_position()-Vector2.ONE * tile_size/2).snapped(Vector2.ONE * tile_size) + Vector2.ONE * tile_size/2
-                is_recently_draged = true
-                yield(get_tree().create_timer(0.1), "timeout")
-                is_recently_draged = false
+func _on_Item_mouse_entered():
+    drag_helper_instance = drag_helper.instance()
+    drag_helper_instance.set_item(self)
+    add_child(drag_helper_instance)

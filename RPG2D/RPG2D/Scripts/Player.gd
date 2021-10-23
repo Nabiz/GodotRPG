@@ -8,7 +8,7 @@ var is_attack_cooldown = false
 func _ready():
     position = position.snapped(Vector2.ONE * tile_size/2)
 
-func _process(delta):
+func _process(_delta):
     if !is_moving:
         if Input.is_action_pressed("ui_left"):
             if !is_obstacle(Vector2.LEFT):
