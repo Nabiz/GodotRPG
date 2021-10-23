@@ -8,22 +8,25 @@
 
 [node name="Node" type="Node"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 2 )]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = -320.0
-margin_top = -540.0
-margin_bottom = 540.0
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 800, 544 )
+z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2( 160, 0 )
 current = true
+
+[node name="NodeGUI" type="Node2D" parent="Player"]
+z_index = 3
+
+[node name="GUI" parent="Player/NodeGUI" instance=ExtResource( 2 )]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 800.0
+margin_top = -544.0
+margin_right = 1120.0
+margin_bottom = 536.0
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 735.566, 224.506 )
