@@ -18,3 +18,6 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 16
 vframes = 22
+frame = 12
+
+[connection signal="gui_input" from="." to="." method="_on_InventorySlot_gui_input"]

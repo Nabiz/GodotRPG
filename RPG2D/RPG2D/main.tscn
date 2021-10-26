@@ -34,4 +34,7 @@ position = Vector2( 735.566, 224.506 )
 [node name="Item" parent="." instance=ExtResource( 3 )]
 position = Vector2( 478.709, 223.997 )
 
+[node name="Item2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 370.953, 447.876 )
+
 [node name="TileMap" parent="." instance=ExtResource( 4 )]

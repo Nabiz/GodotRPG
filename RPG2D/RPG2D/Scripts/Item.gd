@@ -15,8 +15,6 @@ func _ready():
     if get_node("/root/Node/Player"):
         player = get_node("/root/Node/Player")
 
-#global_position = (get_global_mouse_position()-Vector2.ONE * tile_size/2).snapped(Vector2.ONE * tile_size) + Vector2.ONE * tile_size/2
-
 func _on_Item_mouse_entered():
     drag_helper_instance = drag_helper.instance()
     drag_helper_instance.set_item(self)
