@@ -16,6 +16,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.0392157, 0.815686, 0.270588, 1 )
 position = Vector2( 32, 32 )
 texture = ExtResource( 1 )

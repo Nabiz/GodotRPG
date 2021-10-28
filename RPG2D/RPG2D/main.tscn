@@ -3,13 +3,13 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Items/Item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://TileMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tilemap/VillageMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=5]
 
 [node name="Node" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 800, 544 )
+position = Vector2( 32, 32 )
 z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -34,7 +34,4 @@ position = Vector2( 735.566, 224.506 )
 [node name="Item" parent="." instance=ExtResource( 3 )]
 position = Vector2( 478.709, 223.997 )
 
-[node name="Item2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 370.953, 447.876 )
-
-[node name="TileMap" parent="." instance=ExtResource( 4 )]
+[node name="VillageMap" parent="." instance=ExtResource( 4 )]

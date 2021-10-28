@@ -1,0 +1,24 @@
+[remap]
+
+importer="texture_array"
+type="TextureArray"
+path="res://.import/Tileset_Merged.png-789d6876493dca2ad19746137351e5cb.texarr"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Tilemap/BasicVillageTileset/Tileset_Merged.png"
+dest_files=[ "res://.import/Tileset_Merged.png-789d6876493dca2ad19746137351e5cb.texarr" ]
+
+[params]
+
+compress/mode=0
+compress/no_bptc_if_rgb=false
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/srgb=2
+slices/horizontal=8
+slices/vertical=8
