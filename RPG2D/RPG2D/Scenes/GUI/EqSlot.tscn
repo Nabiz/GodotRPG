@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GUI/InventorySlot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/EqSlot.gd" type="Script" id=2]
+
+[node name="EqSlot" instance=ExtResource( 1 )]
+size_flags_horizontal = 4
+script = ExtResource( 2 )

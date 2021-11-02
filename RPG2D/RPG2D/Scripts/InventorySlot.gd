@@ -10,10 +10,10 @@ func _ready():
     id = null_id
     $Sprite.frame = id
 
-func can_drop_data(_position, _item):
+func can_drop_data(_position, _data):
     return id == null_id
 
-func get_drag_data(position):
+func get_drag_data(_position):
     return [id, $Sprite]
 
 func drop_data(_position, data):
@@ -32,6 +32,7 @@ func _input(event):
         is_mouse_hold = false
         if get_viewport().get_mouse_position().x < 1600:
             var item = item_scene.instance()
+            item.id = id
             get_tree().root.get_child(0).add_child(item)
             item.global_position = (get_global_mouse_position()-Vector2.ONE * tile_size/2).snapped(Vector2.ONE * tile_size) + Vector2.ONE * tile_size/2
             id = null_id

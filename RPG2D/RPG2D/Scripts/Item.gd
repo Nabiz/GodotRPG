@@ -1,7 +1,7 @@
 extends Node2D
 
 var tile_size = 64
-var id = 128
+export var id = 96
 var player = null
 
 var is_recently_draged = false
