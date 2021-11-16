@@ -21,6 +21,7 @@ func _ready():
 func take_damage(attack):
     var hit_effect_instance = hit_effect.instance()
     add_child(hit_effect_instance)
+    hit_effect_instance.get_node("Label").text = str(attack)
     hit_effect_instance.global_position = position
     health -= attack
     health_bar.set_value(health)

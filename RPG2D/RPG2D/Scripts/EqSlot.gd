@@ -1,6 +1,9 @@
 extends "res://Scripts/InventorySlot.gd"
 
 export var type = ""
+signal item_changed
+
+var is_item_updated = false
 
 var item_ids_directory = {
     "helmet": [114, 115],
@@ -14,11 +17,18 @@ var item_ids_directory = {
     "shoes": [130, 131],
     }
 
-func _ready():
-    pass
+func _process(_delta):
+    if id == null_id and !is_item_updated:
+        is_item_updated = true
+        emit_signal("item_changed")
 
 func can_drop_data(_position, data):
     if id == null_id:
         return data[0] in item_ids_directory[type]
     else:
         return false
+
+func drop_data(_position, data):
+    .drop_data(_position, data)
+    is_item_updated = false
+    emit_signal("item_changed")

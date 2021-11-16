@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/GUI/InventorySlot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GUI/EqSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Items/ItemStats.tscn" type="PackedScene" id=5]
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -31,12 +33,23 @@ margin_top = 7.0
 margin_right = 313.0
 margin_bottom = 1073.0
 
-[node name="NameLabel" type="Label" parent="Panel/VBoxContainer"]
-margin_left = 121.0
-margin_right = 185.0
+[node name="NickContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_left = 105.0
+margin_right = 200.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+
+[node name="NameLabel" type="Label" parent="Panel/VBoxContainer/NickContainer"]
+margin_right = 64.0
 margin_bottom = 14.0
 size_flags_horizontal = 4
 text = "Nickname"
+
+[node name="LevelLabel" type="Label" parent="Panel/VBoxContainer/NickContainer"]
+margin_left = 68.0
+margin_right = 95.0
+margin_bottom = 14.0
+text = "1 lvl"
 
 [node name="HealthBar" type="ProgressBar" parent="Panel/VBoxContainer"]
 margin_top = 18.0
@@ -68,7 +81,7 @@ columns = 3
 margin_right = 200.0
 margin_bottom = 200.0
 
-[node name="EqSlot" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer" instance=ExtResource( 3 )]
+[node name="HelmetSlot" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 68.0
 margin_right = 132.0
 type = "helmet"
@@ -78,20 +91,20 @@ margin_top = 68.0
 margin_right = 200.0
 margin_bottom = 132.0
 
-[node name="EqSlot2" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="WeaponSlot" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 type = "sword"
 
-[node name="EqSlot3" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="ArmorSlot" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 margin_left = 68.0
 margin_right = 132.0
 type = "armor"
 
-[node name="EqSlot4" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="OffhandSlot" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 margin_left = 136.0
 margin_right = 200.0
 type = "shield"
 
-[node name="EqSlot2" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer" instance=ExtResource( 3 )]
+[node name="ShoesSlot" parent="Panel/VBoxContainer/GridContainerEq/VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 68.0
 margin_top = 136.0
 margin_right = 132.0
@@ -106,11 +119,35 @@ margin_bottom = 290.0
 size_flags_horizontal = 4
 text = "Inventory"
 
+[node name="GoldContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_left = 55.0
+margin_top = 294.0
+margin_right = 251.0
+margin_bottom = 358.0
+size_flags_horizontal = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldText" type="TextEdit" parent="Panel/VBoxContainer/GoldContainer"]
+margin_right = 128.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 128, 32 )
+text = "0"
+readonly = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/GoldContainer"]
+margin_left = 132.0
+margin_right = 196.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+
 [node name="GridContainerInventory" type="GridContainer" parent="Panel/VBoxContainer"]
 margin_left = 13.0
-margin_top = 294.0
+margin_top = 362.0
 margin_right = 293.0
-margin_bottom = 646.0
+margin_bottom = 714.0
 size_flags_horizontal = 4
 custom_constants/vseparation = 8
 custom_constants/hseparation = 8
@@ -218,14 +255,46 @@ margin_top = 288.0
 margin_right = 280.0
 margin_bottom = 352.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 650.0
+[node name="StatsLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_left = 124.0
+margin_top = 718.0
+margin_right = 182.0
+margin_bottom = 732.0
+size_flags_horizontal = 4
+text = "Statsitics"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+margin_top = 736.0
 margin_right = 306.0
-margin_bottom = 670.0
+margin_bottom = 856.0
+rect_min_size = Vector2( 0, 120 )
+
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/MarginContainer"]
+margin_right = 306.0
+margin_bottom = 120.0
+text = " Attack:
+ Defence:
+ Magic Defence:"
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 860.0
+margin_right = 306.0
+margin_bottom = 880.0
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 margin_right = 77.0
 margin_bottom = 20.0
 text = "Exit Game"
 
+[node name="ItemStats" parent="." instance=ExtResource( 5 )]
+
+[connection signal="item_changed" from="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HelmetSlot" to="." method="_on_item_changed"]
+[connection signal="item_changed" from="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer/WeaponSlot" to="." method="_on_item_changed"]
+[connection signal="item_changed" from="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer/ArmorSlot" to="." method="_on_item_changed"]
+[connection signal="item_changed" from="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer/OffhandSlot" to="." method="_on_item_changed"]
+[connection signal="item_changed" from="Panel/VBoxContainer/GridContainerEq/VBoxContainer/ShoesSlot" to="." method="_on_item_changed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]

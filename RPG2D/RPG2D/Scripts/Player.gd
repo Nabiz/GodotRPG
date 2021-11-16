@@ -5,6 +5,29 @@ var is_moving = false
 var target = null
 var is_attack_cooldown = false
 
+var gui = null
+
+var min_attack = 1
+var max_attack = 1
+var def = 0
+var magic_def = 0
+
+func set_stats(new_min_attack, new_max_attack, new_def, new_magic_def):
+    min_attack = new_min_attack
+    max_attack = new_max_attack
+    def = new_def
+    magic_def = new_magic_def
+
+func attack():
+    if target and not is_attack_cooldown:
+        if position.distance_to(target.position) <= 1.42 * tile_size:
+            $Timer.start(2)
+            is_attack_cooldown = true
+            var rng = RandomNumberGenerator.new()
+            rng.randomize()
+            var attack_value = rng.randi_range(min_attack, max_attack)
+            target.take_damage(attack_value)
+
 func _ready():
     position = position.snapped(Vector2.ONE * tile_size/2)
 
@@ -26,12 +49,11 @@ func _process(_delta):
             if !is_obstacle(Vector2.DOWN):
                 $AnimatedSprite.set_animation("walk_down")
                 tween_player(Vector2.DOWN)
-        
-    if target and not is_attack_cooldown:
-        if position.distance_to(target.position) <= 1.42 * tile_size:
-            $Timer.start(2)
-            is_attack_cooldown = true
-            target.take_damage(10)
+
+    attack()
+
+func set_gui(new_gui):
+    gui = new_gui
 
 func set_target(new_target):
     target = new_target
