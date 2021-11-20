@@ -4,18 +4,22 @@ var tile_size = 64
 export var id = 96
 var player = null
 
-var is_recently_draged = false
+var previous_position
 
-var drag_helper = preload("res://Scenes/Utility/DragHelper.tscn")
-var drag_helper_instance
+onready var drag_helper= $DragHelper
+
 
 func _ready():
+    previous_position = global_position
+    
     $Sprite.frame = id
+    drag_helper.set_item(self)
     position = position.snapped(Vector2.ONE * tile_size/2)
     if get_node("/root/Node/Player"):
         player = get_node("/root/Node/Player")
+    drag_helper.set_process_input(false)
+    drag_helper.visible = false
 
 func _on_Item_mouse_entered():
-    drag_helper_instance = drag_helper.instance()
-    drag_helper_instance.set_item(self)
-    add_child(drag_helper_instance)
+    drag_helper.set_process_input(true)
+    drag_helper.visible = true

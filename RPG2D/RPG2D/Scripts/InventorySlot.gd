@@ -35,8 +35,12 @@ func _input(event):
             item.id = id
             get_tree().root.get_child(0).add_child(item)
             item.global_position = (get_global_mouse_position()-Vector2.ONE * tile_size/2).snapped(Vector2.ONE * tile_size) + Vector2.ONE * tile_size/2
-            id = null_id
-            $Sprite.frame = id
+            yield(get_tree().create_timer(0.1), "timeout")
+            if item.get_overlapping_areas().size() > 0 or item.get_overlapping_bodies().size() > 0:
+                item.queue_free()
+            else:
+                id = null_id
+                $Sprite.frame = id
 
 func _on_InventorySlot_gui_input(event):
     if event.is_action_pressed("ui_mouse_left") and !is_mouse_hold:
