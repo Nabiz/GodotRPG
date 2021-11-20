@@ -6,7 +6,7 @@ signal item_changed
 var is_item_updated = false
 
 var item_ids_directory = {
-    "helmet": [114, 115],
+    "helmet": [113, 114],
     "hat": [125, 127],
     "sword": [81, 82, 83],
     "rod": [103, 104, 170],
@@ -23,7 +23,7 @@ func _process(_delta):
         emit_signal("item_changed")
 
 func can_drop_data(_position, data):
-    if id == null_id:
+    if id == null_id and data is Array:
         return data[0] in item_ids_directory[type]
     else:
         return false
