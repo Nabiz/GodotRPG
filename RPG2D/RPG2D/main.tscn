@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Items/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilemap/VillageMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Enemies/Enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Enemies/Corpse.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Enemies/Loot.tscn" type="PackedScene" id=6]
 
 [node name="Node" type="Node"]
 
@@ -121,9 +121,8 @@ frame = 82
 
 [node name="VillageMap" parent="." instance=ExtResource( 4 )]
 
-[node name="Corpse" parent="." instance=ExtResource( 6 )]
+[node name="Loot" parent="." instance=ExtResource( 6 )]
 position = Vector2( 160, 32 )
-scale = Vector2( 1, 1 )
 
 [editable path="Helmet1"]
 [editable path="Helmet2"]

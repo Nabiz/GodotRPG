@@ -4,6 +4,8 @@ var player = null
 onready var item_stats = $ItemStats
 onready var stats_text = $Panel/VBoxContainer/MarginContainer/TextEdit
 
+onready var money_text = $Panel/VBoxContainer/GoldContainer/GoldText
+
 onready var helmet_slot = $Panel/VBoxContainer/GridContainerEq/VBoxContainer/HelmetSlot
 onready var weapon_slot = $Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer/WeaponSlot
 onready var armor_slot = $Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer/ArmorSlot
@@ -22,6 +24,10 @@ func _ready():
 
 func _on_Button_pressed():
     get_tree().quit(0)
+
+func add_money(money):
+    var current_money = int(money_text.text)
+    money_text.text = str(current_money + money)
 
 func set_stats_text():
     stats_text.text = \
