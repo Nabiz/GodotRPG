@@ -6,8 +6,12 @@ var tile_size = 64
 var player
 
 func _ready():
+    loot_gui.visible = false
     if get_node("../Player"):
         player = get_node("../Player")
+
+func set_loot(money, item0, item1, item2, item3):
+    loot_gui.set_loot(money, item0, item1, item2, item3)
 
 func _process(delta):
     if loot_gui.visible and global_position.distance_to(player.global_position) > 1.42*tile_size:

@@ -11,6 +11,8 @@ script = ExtResource( 3 )
 [node name="PanelContainer" type="PanelContainer" parent="."]
 margin_right = 146.0
 margin_bottom = 170.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -29,7 +31,7 @@ margin_bottom = 20.0
 margin_right = 63.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
-text = "100"
+text = "0"
 readonly = true
 
 [node name="Container" type="MarginContainer" parent="PanelContainer/VBoxContainer2/HBoxContainer2"]
@@ -62,19 +64,23 @@ margin_bottom = 156.0
 columns = 2
 
 [node name="InventorySlot" parent="PanelContainer/VBoxContainer2/HBoxContainer" instance=ExtResource( 1 )]
+can_drop_item = false
 
 [node name="InventorySlot2" parent="PanelContainer/VBoxContainer2/HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 68.0
 margin_right = 132.0
+can_drop_item = false
 
 [node name="InventorySlot3" parent="PanelContainer/VBoxContainer2/HBoxContainer" instance=ExtResource( 1 )]
 margin_top = 68.0
 margin_bottom = 132.0
+can_drop_item = false
 
 [node name="InventorySlot4" parent="PanelContainer/VBoxContainer2/HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 68.0
 margin_top = 68.0
 margin_right = 132.0
 margin_bottom = 132.0
+can_drop_item = false
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer2/HBoxContainer2/Button" to="." method="_on_Button_pressed"]

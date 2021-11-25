@@ -8,10 +8,12 @@ var health
 
 var hit_effect = preload("res://Scenes/Effects/HitEffect.tscn")
 
+var loot_scene = preload("res://Scenes/Enemies/Loot.tscn")
+
 func _ready():
     position = position.snapped(Vector2.ONE * tile_size/2)
     input_pickable = true
-    health = 100
+    health = 20
     health_bar = $Node2D/VBoxContainer/ProgressBar
     health_bar.set_max(health)
     health_bar.set_value(health)
@@ -31,7 +33,7 @@ func take_damage(attack):
                 $TargetEffect.show()
                 player.set_target(null)
         yield(get_tree().create_timer(0.2), "timeout")
-        queue_free()
+        die()
 
 func _on_Enemy_input_event(_viewport, event, _shape_idx):
     if event.is_action_released("ui_mouse_right"):
@@ -42,3 +44,23 @@ func _on_Enemy_input_event(_viewport, event, _shape_idx):
             else:
                 $TargetEffect.hide()
                 player.set_target(null)
+
+
+func get_random_loot():
+    var rng = RandomNumberGenerator.new()
+    rng.randomize()
+    var money = rng.randi_range(0, 5)
+    var item1 = 189 if rng.randf() > 0.25 else 12
+    var item2 = 190 if rng.randf() > 0.25 else 12
+    var item3 = 191 if rng.randf() > 0.25 else 12
+    var item4 = 224 if rng.randf() > 0.2 else 12
+    return [money, item1, item2, item3, item4]
+
+func die():
+    var loot = loot_scene.instance()
+    loot.global_position = global_position
+    self.get_parent().add_child(loot)
+    var l = get_random_loot()
+    loot.set_loot(l[0], l[1], l[2], l[3], l[4])
+    queue_free()
+

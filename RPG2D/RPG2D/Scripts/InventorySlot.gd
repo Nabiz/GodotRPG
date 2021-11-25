@@ -6,12 +6,17 @@ var tile_size = 64
 var null_id = 12
 var id
 
+export var can_drop_item := true
+
 func _ready():
-    id = null_id
-    $Sprite.frame = id
+    set_id(null_id)
+
+func set_id(item_id):
+    id = item_id
+    $Sprite.frame = item_id
 
 func can_drop_data(_position, _data):
-    return id == null_id
+    return can_drop_item and id == null_id
 
 func get_drag_data(_position):
     return [id, $Sprite]

@@ -32,6 +32,12 @@ margin_bottom = 540.0
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 735.566, 224.506 )
 
+[node name="Enemy2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -159.608, 32.368 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 5 )]
+position = Vector2( -159.608, -94.884 )
+
 [node name="Helmet1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 416, 32 )
 id = 114
@@ -119,6 +125,13 @@ id = 82
 [node name="Sprite" parent="Sword3" index="0"]
 frame = 82
 
+[node name="Sword4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -31.4896, -32.2897 )
+id = 82
+
+[node name="Sprite" parent="Sword4" index="0"]
+frame = 82
+
 [node name="VillageMap" parent="." instance=ExtResource( 4 )]
 
 [node name="Loot" parent="." instance=ExtResource( 6 )]
@@ -137,3 +150,4 @@ position = Vector2( 160, 32 )
 [editable path="Sword1"]
 [editable path="Sword2"]
 [editable path="Sword3"]
+[editable path="Sword4"]
