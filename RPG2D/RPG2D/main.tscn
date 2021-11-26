@@ -5,12 +5,15 @@
 [ext_resource path="res://Scenes/Items/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilemap/VillageMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Enemies/Enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Enemies/Loot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Utility/Pathfinding.tscn" type="PackedScene" id=6]
 
 [node name="Node" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 1070.94 ]
+}
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 32, 32 )
+position = Vector2( 672, 800 )
 z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -29,104 +32,101 @@ margin_top = -540.0
 margin_right = 1120.0
 margin_bottom = 540.0
 
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 735.566, 224.506 )
-
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -159.608, 32.368 )
+position = Vector2( 416, 544 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
-position = Vector2( -159.608, -94.884 )
+position = Vector2( 928, 609.578 )
 
 [node name="Helmet1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 416, 32 )
+position = Vector2( 1120, 608 )
 id = 114
 
 [node name="Sprite" parent="Helmet1" index="0"]
 frame = 114
 
 [node name="Helmet2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 416, 96 )
+position = Vector2( 1184, 608 )
 id = 113
 
 [node name="Sprite" parent="Helmet2" index="0"]
 frame = 113
 
 [node name="Shoes1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 416, 160 )
+position = Vector2( 1183.61, 673.578 )
 id = 130
 
 [node name="Sprite" parent="Shoes1" index="0"]
 frame = 130
 
 [node name="Shoes2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 416, 224 )
+position = Vector2( 1183.61, 737.578 )
 id = 131
 
 [node name="Sprite" parent="Shoes2" index="0"]
 frame = 131
 
 [node name="Shield1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 480, 224 )
+position = Vector2( 1247.61, 737.578 )
 
 [node name="Shield2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 544, 224 )
+position = Vector2( 1311.61, 737.578 )
 id = 97
 
 [node name="Sprite" parent="Shield2" index="0"]
 frame = 97
 
 [node name="Shield3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 608, 224 )
+position = Vector2( 1375.61, 737.578 )
 id = 98
 
 [node name="Sprite" parent="Shield3" index="0"]
 frame = 98
 
 [node name="Armor1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 480, 32 )
+position = Vector2( 1120, 800 )
 id = 118
 
 [node name="Sprite" parent="Armor1" index="0"]
 frame = 118
 
 [node name="Armor2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 480, 96 )
+position = Vector2( 1247.61, 609.578 )
 id = 116
 
 [node name="Sprite" parent="Armor2" index="0"]
 frame = 116
 
 [node name="Armor3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 480, 160 )
+position = Vector2( 1247.61, 673.578 )
 id = 117
 
 [node name="Sprite" parent="Armor3" index="0"]
 frame = 117
 
 [node name="Sword1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 544, 160 )
+position = Vector2( 1311.61, 673.578 )
 id = 83
 
 [node name="Sprite" parent="Sword1" index="0"]
 frame = 83
 
 [node name="Sword2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 544, 96 )
+position = Vector2( 1311.61, 609.578 )
 id = 81
 
 [node name="Sprite" parent="Sword2" index="0"]
 frame = 81
 
 [node name="Sword3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 544, 32 )
+position = Vector2( 1311.61, 544 )
 id = 82
 
 [node name="Sprite" parent="Sword3" index="0"]
 frame = 82
 
 [node name="Sword4" parent="." instance=ExtResource( 3 )]
-position = Vector2( -31.4896, -32.2897 )
+position = Vector2( 736.118, 479.946 )
 id = 82
 
 [node name="Sprite" parent="Sword4" index="0"]
@@ -134,8 +134,8 @@ frame = 82
 
 [node name="VillageMap" parent="." instance=ExtResource( 4 )]
 
-[node name="Loot" parent="." instance=ExtResource( 6 )]
-position = Vector2( 160, 32 )
+[node name="Pathfinding" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [editable path="Helmet1"]
 [editable path="Helmet2"]

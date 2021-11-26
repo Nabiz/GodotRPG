@@ -6,6 +6,8 @@ var player = null
 var health_bar
 var health
 
+var pathfinding = null
+
 var hit_effect = preload("res://Scenes/Effects/HitEffect.tscn")
 
 var loot_scene = preload("res://Scenes/Enemies/Loot.tscn")
@@ -19,6 +21,8 @@ func _ready():
     health_bar.set_value(health)
     if get_node("../Player"):
         player = get_node("../Player")
+    if get_node("../Pathfinding"):
+        pathfinding = get_node("../Pathfinding")
 
 func take_damage(attack):
     var hit_effect_instance = hit_effect.instance()
@@ -50,10 +54,10 @@ func get_random_loot():
     var rng = RandomNumberGenerator.new()
     rng.randomize()
     var money = rng.randi_range(0, 5)
-    var item1 = 189 if rng.randf() > 0.25 else 12
-    var item2 = 190 if rng.randf() > 0.25 else 12
-    var item3 = 191 if rng.randf() > 0.25 else 12
-    var item4 = 224 if rng.randf() > 0.2 else 12
+    var item1 = 189 if rng.randf() < 0.25 else 12
+    var item2 = 190 if rng.randf() < 0.25 else 12
+    var item3 = 191 if rng.randf() < 0.25 else 12
+    var item4 = 224 if rng.randf() < 0.2 else 12
     return [money, item1, item2, item3, item4]
 
 func die():
@@ -64,3 +68,25 @@ func die():
     loot.set_loot(l[0], l[1], l[2], l[3], l[4])
     queue_free()
 
+var path = []
+var is_moving = false
+func _process(delta):
+    if path and !is_moving:
+        tween_move(path[0])
+        path.remove(0)
+    elif player:
+        path = pathfinding.get_path_array(global_position, player.global_position)
+        if path:
+            path.remove(0)
+        
+func tween_move(destination_position):
+    is_moving = true
+    var tween = $Tween
+    #$AnimatedSprite.play()
+    tween.interpolate_property(self, "position", position,
+    destination_position, 0.5, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+    tween.start()
+
+
+func _on_Tween_tween_all_completed():
+    is_moving = false

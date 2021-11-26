@@ -13,7 +13,7 @@ func _ready():
 func set_loot(money, item0, item1, item2, item3):
     loot_gui.set_loot(money, item0, item1, item2, item3)
 
-func _process(delta):
+func _process(_delta):
     if loot_gui.visible and global_position.distance_to(player.global_position) > 1.42*tile_size:
         loot_gui.visible = false
 

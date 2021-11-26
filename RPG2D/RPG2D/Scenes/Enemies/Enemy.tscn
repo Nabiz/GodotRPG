@@ -72,4 +72,7 @@ z_index = -1
 [node name="Sprite" type="Sprite" parent="TargetEffect"]
 texture = ExtResource( 3 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="input_event" from="." to="." method="_on_Enemy_input_event"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
