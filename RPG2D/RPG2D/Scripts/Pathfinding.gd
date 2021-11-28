@@ -42,6 +42,8 @@ func _ready():
                         astar.connect_points((i+1)*size_x + j, i*size_x + j, false)
 
 func get_path_array(start, end):
+    if end == null:
+        return null
     var start_id = astar.get_closest_point(start)
     var end_id = astar.get_closest_point(end)
     if astar.get_point_position(end_id) in obstacles:

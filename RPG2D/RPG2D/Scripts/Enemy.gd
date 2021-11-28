@@ -6,14 +6,17 @@ var player = null
 var health_bar
 var health
 
+
 var pathfinding = null
+var previous_position
 
 var hit_effect = preload("res://Scenes/Effects/HitEffect.tscn")
 
 var loot_scene = preload("res://Scenes/Enemies/Loot.tscn")
 
 func _ready():
-    position = position.snapped(Vector2.ONE * tile_size/2)
+    global_position = global_position.snapped(Vector2.ONE * tile_size/2)
+    previous_position = global_position
     input_pickable = true
     health = 20
     health_bar = $Node2D/VBoxContainer/ProgressBar
@@ -34,7 +37,7 @@ func take_damage(attack):
     if health <= 0:
         if player:
             if player.target == self:
-                $TargetEffect.show()
+                $TargetEffect.hide()
                 player.set_target(null)
         yield(get_tree().create_timer(0.2), "timeout")
         die()
@@ -54,39 +57,85 @@ func get_random_loot():
     var rng = RandomNumberGenerator.new()
     rng.randomize()
     var money = rng.randi_range(0, 5)
-    var item1 = 189 if rng.randf() < 0.25 else 12
-    var item2 = 190 if rng.randf() < 0.25 else 12
-    var item3 = 191 if rng.randf() < 0.25 else 12
-    var item4 = 224 if rng.randf() < 0.2 else 12
+    var item1 = 189 if rng.randf() < 0.2 else 12
+    var item2 = 12
+    var item3 = 12
+    var item4 = 12
     return [money, item1, item2, item3, item4]
 
 func die():
     var loot = loot_scene.instance()
-    loot.global_position = global_position
+    loot.global_position = global_position.snapped(Vector2.ONE * tile_size/2)
     self.get_parent().add_child(loot)
     var l = get_random_loot()
     loot.set_loot(l[0], l[1], l[2], l[3], l[4])
     queue_free()
 
+
 var path = []
 var is_moving = false
-func _process(delta):
+
+func _process(_delta):
     if path and !is_moving:
-        tween_move(path[0])
-        path.remove(0)
+        if !is_obstacle(path[0] - global_position):
+            set_animtaion(path[0] - global_position)
+            tween_move(path[0])
+        path = []
     elif player:
-        path = pathfinding.get_path_array(global_position, player.global_position)
-        if path:
-            path.remove(0)
+        if global_position.distance_to(player.global_position) > 1.42 * tile_size: 
+            path = pathfinding.get_path_array(global_position, player.get_free_neighbour_tile())
+            if path:
+                path.remove(0)
+            else:
+                $AnimatedSprite.frame = 0
+                $AnimatedSprite.stop()
+        else:
+            $AnimatedSprite.frame = 0
+            $AnimatedSprite.stop()
         
+
 func tween_move(destination_position):
+    previous_position = global_position
     is_moving = true
     var tween = $Tween
-    #$AnimatedSprite.play()
-    tween.interpolate_property(self, "position", position,
+    $AnimatedSprite.play()
+    tween.interpolate_property(self, "global_position", global_position,
     destination_position, 0.5, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
     tween.start()
 
+func set_animtaion(vector):
+    if (Vector2.UP * tile_size).snapped(Vector2.ONE * tile_size) == vector:
+        $AnimatedSprite.animation = "walk_up"
+    elif (Vector2.DOWN * tile_size).snapped(Vector2.ONE * tile_size) == vector:
+        $AnimatedSprite.animation = "walk_down"
+    elif (Vector2.RIGHT * tile_size).snapped(Vector2.ONE * tile_size) == vector:
+        $AnimatedSprite.animation = "walk_right"
+    elif (Vector2.LEFT * tile_size).snapped(Vector2.ONE * tile_size) == vector:
+        $AnimatedSprite.animation = "walk_left"
 
 func _on_Tween_tween_all_completed():
+    path = []
+    is_moving = false
+
+func is_obstacle(vector):
+    $RayCast2D.cast_to = vector * 1.49
+    $RayCast2D.force_raycast_update()
+    return $RayCast2D.is_colliding()
+
+
+func _on_Enemy_area_entered(_area):
+    $Tween.remove_all()
+    global_position = previous_position
+    var rng = RandomNumberGenerator.new()
+    rng.randomize()
+    yield(get_tree().create_timer(0.5*rng.randi_range(0, 3)), "timeout")
+    is_moving = false
+
+
+func _on_OverlapingArea_area_entered(area):
+    $Tween.remove_all()
+    global_position = previous_position
+    var rng = RandomNumberGenerator.new()
+    rng.randomize()
+    yield(get_tree().create_timer(0.5*rng.randi_range(0, 3)), "timeout")
     is_moving = false

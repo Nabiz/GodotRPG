@@ -9,6 +9,16 @@ $PanelContainer/VBoxContainer2/HBoxContainer/InventorySlot4]
 
 signal money_taken(money)
 
+func _process(_delta):
+    if check_empty():
+        get_parent().queue_free()
+
+func check_empty():
+    if money_text.text == "0" and slots[0].id == 12 and slots[1].id == 12 and slots[2].id == 12 and slots[3].id == 12:
+        return true
+    else:
+        return false
+
 func _on_Button_pressed():
     var money = int(money_text.text)
     money_text.text = "0"

@@ -56,12 +56,26 @@ func set_gui(new_gui):
     gui = new_gui
 
 func set_target(new_target):
+    if target:
+        target.get_node("TargetEffect").hide()
     target = new_target
 
 func is_obstacle(vector):
-    $RayCast2D.cast_to = vector * tile_size
+    $RayCast2D.cast_to = vector * tile_size * 1.49
     $RayCast2D.force_raycast_update()
     return $RayCast2D.is_colliding()
+
+func get_free_neighbour_tile():
+    if !is_obstacle(Vector2.UP):
+        return global_position + Vector2.UP * tile_size
+    if !is_obstacle(Vector2.DOWN):
+        return global_position + Vector2.DOWN * tile_size
+    if !is_obstacle(Vector2.RIGHT):
+        return global_position + Vector2.RIGHT * tile_size
+    if !is_obstacle(Vector2.LEFT):
+        return global_position + Vector2.LEFT * tile_size
+    else:
+        return null
 
 func tween_player(vector):
     is_moving = true
