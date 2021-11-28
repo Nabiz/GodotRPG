@@ -16,8 +16,8 @@ var eq_slots = null
 
 func _ready():
     eq_slots = [helmet_slot, weapon_slot, armor_slot, offhand_slot, shoes_slot]
-    if get_node("/root/Node/Player"):
-        player = get_node("/root/Node/Player")
+    if get_parent().get_parent():
+        player = get_parent().get_parent()
         player.set_gui(self)
         set_stats_text()
     

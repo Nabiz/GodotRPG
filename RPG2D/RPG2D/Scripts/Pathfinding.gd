@@ -12,7 +12,7 @@ export var size_y = 14
 
 func _ready():
     astar = AStar2D.new()
-    var obstacles_cords = get_used_cells_by_id(3)
+    var obstacles_cords = get_used_cells_by_id(0)
     for cord in obstacles_cords:
         obstacles.append(Vector2(cord[0] * tile_size + offset,
                         cord[1] * tile_size + offset))

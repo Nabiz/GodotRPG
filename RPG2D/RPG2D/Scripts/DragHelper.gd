@@ -6,9 +6,8 @@ var tile_size = 64
 
 var player = null
 
-func _ready():
-    if get_node("/root/Node/Player"):
-        player = get_node("/root/Node/Player")
+func set_player(new_player):
+    player = new_player
 
 func _process(_delta):
     if is_processing_input():

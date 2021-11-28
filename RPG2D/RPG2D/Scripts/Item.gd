@@ -11,12 +11,12 @@ onready var drag_helper= $DragHelper
 
 func _ready():
     previous_position = global_position
-    
     $Sprite.frame = id
     drag_helper.set_item(self)
     position = position.snapped(Vector2.ONE * tile_size/2)
-    if get_node("/root/Node/Player"):
-        player = get_node("/root/Node/Player")
+    if get_node("../Player"):
+        player = get_node("../Player")
+        drag_helper.set_player(player)
     drag_helper.set_process_input(false)
     drag_helper.visible = false
 
