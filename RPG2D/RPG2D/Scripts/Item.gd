@@ -1,13 +1,16 @@
 extends Node2D
 
 var tile_size = 64
-export var id = 96
+tool export var id = 96 setget set_id
 var player = null
 
 var previous_position
 
 onready var drag_helper= $DragHelper
 
+func set_id(new_id):
+    id = new_id
+    $Sprite.frame = id
 
 func _ready():
     previous_position = global_position

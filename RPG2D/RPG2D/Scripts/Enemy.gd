@@ -14,6 +14,8 @@ var hit_effect = preload("res://Scenes/Effects/HitEffect.tscn")
 
 var loot_scene = preload("res://Scenes/Enemies/Loot.tscn")
 
+var reserved_area_scene = preload("res://Scenes/Utility/ReservedArea.tscn")
+
 func _ready():
     global_position = global_position.snapped(Vector2.ONE * tile_size/2)
     previous_position = global_position
@@ -74,11 +76,17 @@ func die():
 
 var path = []
 var is_moving = false
+var reserved_area = null
 
 func _process(_delta):
     if path and !is_moving:
         if !is_obstacle(path[0] - global_position):
             set_animtaion(path[0] - global_position)
+            
+            reserved_area = reserved_area_scene.instance()
+            get_parent().add_child(reserved_area)
+            reserved_area.global_position = path[0]
+            
             tween_move(path[0])
         path = []
     elif player:
@@ -86,12 +94,6 @@ func _process(_delta):
             path = pathfinding.get_path_array(global_position, player.get_free_neighbour_tile())
             if path:
                 path.remove(0)
-            else:
-                $AnimatedSprite.frame = 0
-                $AnimatedSprite.stop()
-        else:
-            $AnimatedSprite.frame = 0
-            $AnimatedSprite.stop()
         
 
 func tween_move(destination_position):
@@ -116,6 +118,12 @@ func set_animtaion(vector):
 func _on_Tween_tween_all_completed():
     path = []
     is_moving = false
+    
+    $AnimatedSprite.frame = 0
+    $AnimatedSprite.stop()
+    
+    reserved_area.queue_free()
+    reserved_area = null
 
 func is_obstacle(vector):
     $RayCast2D.cast_to = vector * 1.49
@@ -134,6 +142,12 @@ func _on_Enemy_area_entered(_area):
 
 func _on_OverlapingArea_area_entered(area):
     $Tween.remove_all()
+    path = []
+    $AnimatedSprite.frame = 0
+    $AnimatedSprite.stop()
+    if reserved_area:
+        reserved_area.queue_free()
+        reserved_area = null
     global_position = previous_position
     var rng = RandomNumberGenerator.new()
     rng.randomize()

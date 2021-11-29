@@ -20,38 +20,38 @@ position = Vector2( 3039.88, 2144 )
 id = 113
 
 [node name="Shoes1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3039.49, 2209.58 )
+position = Vector2( 3040, 2208 )
 id = 130
 
 [node name="Shoes2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3039.49, 2273.58 )
+position = Vector2( 3040, 2272 )
 id = 131
 
 [node name="Shield1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3103.49, 2273.58 )
+position = Vector2( 3104, 2272 )
 
 [node name="Shield2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3167.49, 2273.58 )
+position = Vector2( 3168, 2272 )
 id = 97
 
 [node name="Shield3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3231.49, 2273.58 )
+position = Vector2( 3232, 2272 )
 id = 98
 
 [node name="Armor1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2975.88, 2336 )
+position = Vector2( 2976, 2336 )
 id = 118
 
 [node name="Armor2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3103.49, 2145.58 )
+position = Vector2( 3104, 2144 )
 id = 116
 
 [node name="Armor3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3103.49, 2209.58 )
+position = Vector2( 3104, 2208 )
 id = 117
 
 [node name="Sword1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3167.49, 2209.58 )
+position = Vector2( 3168, 2208 )
 id = 83
 
 [node name="Sword2" parent="." instance=ExtResource( 5 )]
@@ -59,7 +59,7 @@ position = Vector2( 2592, 2272 )
 id = 81
 
 [node name="Sword3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3167.49, 2080 )
+position = Vector2( 3168, 2080 )
 id = 82
 
 [node name="Sword4" parent="." instance=ExtResource( 5 )]
