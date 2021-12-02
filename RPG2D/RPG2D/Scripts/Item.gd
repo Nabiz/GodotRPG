@@ -1,7 +1,8 @@
 extends Node2D
 
+tool
 var tile_size = 64
-tool export var id = 96 setget set_id
+export var id = 96 setget set_id
 var player = null
 
 var previous_position

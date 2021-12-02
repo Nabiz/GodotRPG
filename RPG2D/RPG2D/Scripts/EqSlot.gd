@@ -17,6 +17,7 @@ var item_ids_directory = {
     "shoes": [130, 131],
     }
 
+
 func _process(_delta):
     if id == null_id and !is_item_updated:
         is_item_updated = true

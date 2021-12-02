@@ -299,3 +299,5 @@ text = "Exit Game"
 [connection signal="item_changed" from="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer/OffhandSlot" to="." method="_on_item_changed"]
 [connection signal="item_changed" from="Panel/VBoxContainer/GridContainerEq/VBoxContainer/ShoesSlot" to="." method="_on_item_changed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
+
+[editable path="Panel/VBoxContainer/GridContainerEq/VBoxContainer/HBoxContainer/WeaponSlot"]

@@ -71,6 +71,8 @@ func die():
     self.get_parent().add_child(loot)
     var l = get_random_loot()
     loot.set_loot(l[0], l[1], l[2], l[3], l[4])
+    if reserved_area:
+        reserved_area.queue_free()
     queue_free()
 
 
@@ -140,7 +142,7 @@ func _on_Enemy_area_entered(_area):
     is_moving = false
 
 
-func _on_OverlapingArea_area_entered(area):
+func _on_OverlapingArea_area_entered(_area):
     $Tween.remove_all()
     path = []
     $AnimatedSprite.frame = 0
