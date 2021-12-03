@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void vertex() {
+    VERTEX.x = VERTEX.x * (0.3 * abs(cos(TIME)) + 0.9);
+    VERTEX.y = VERTEX.y * (0.3 * abs(cos(TIME)) + 0.9);
+   }"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="TargetEffect" type="Node2D"]
+z_index = -1
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 1 )

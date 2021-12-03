@@ -5,12 +5,31 @@ var is_moving = false
 var target = null
 var is_attack_cooldown = false
 
-var gui = null
+onready var gui = $GUINode/GUI
+onready var health_bar = $BarsNode/HealthBar
+onready var mana_bar = $BarsNode/ManaBar
 
 var min_attack = 1
 var max_attack = 1
 var def = 0
 var magic_def = 0
+
+var max_health = 60
+var max_mana = 5
+var health = 60
+var mana = 5
+
+var level = 1
+var experience = 0 
+
+func _ready():
+    position = position.snapped(Vector2.ONE * tile_size/2)
+    gui.set_bars_max_value(max_health, max_mana)
+    health_bar.max_value = max_health
+    mana_bar.max_value = max_mana
+    gui.update_bars(health, mana)
+    health_bar.value = health
+    mana_bar.value = mana
 
 func set_stats(new_min_attack, new_max_attack, new_def, new_magic_def):
     min_attack = new_min_attack
@@ -28,8 +47,20 @@ func attack():
             var attack_value = rng.randi_range(min_attack, max_attack)
             target.take_damage(attack_value)
 
-func _ready():
-    position = position.snapped(Vector2.ONE * tile_size/2)
+var hit_effect = preload("res://Scenes/Effects/HitEffect.tscn")
+
+func take_damage(damage):
+    var health_lost = damage - def
+    health -= health_lost
+    gui.update_bars(health, mana)
+    health_bar.value = health
+    mana_bar.value = mana
+    
+    var hit_effect_instance = hit_effect.instance()
+    add_child(hit_effect_instance)
+    hit_effect_instance.get_node("Label").text = str(health_lost)
+    hit_effect_instance.global_position = position
+
 
 func _process(_delta):
     if !is_moving:
@@ -52,8 +83,6 @@ func _process(_delta):
 
     attack()
 
-func set_gui(new_gui):
-    gui = new_gui
 
 func set_target(new_target):
     if target:

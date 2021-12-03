@@ -29,6 +29,20 @@ func _ready():
     if get_node("../Pathfinding"):
         pathfinding = get_node("../Pathfinding")
 
+var attack = 1
+var can_attack = true
+
+func attack():
+    if player:
+        if global_position.distance_to(player.global_position) < 1.42 * tile_size:
+            if can_attack:
+                can_attack = false
+                player.take_damage(1)
+                $Timer.start()
+
+func _on_Timer_timeout():
+    can_attack = true
+
 func take_damage(attack):
     var hit_effect_instance = hit_effect.instance()
     add_child(hit_effect_instance)
@@ -81,6 +95,7 @@ var is_moving = false
 var reserved_area = null
 
 func _process(_delta):
+    attack()
     if path and !is_moving:
         if !is_obstacle(path[0] - global_position):
             set_animtaion(path[0] - global_position)
@@ -104,7 +119,7 @@ func tween_move(destination_position):
     var tween = $Tween
     $AnimatedSprite.play()
     tween.interpolate_property(self, "global_position", global_position,
-    destination_position, 0.5, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+    destination_position, 1, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
     tween.start()
 
 func set_animtaion(vector):

@@ -53,14 +53,18 @@ margin_bottom = 14.0
 text = "1 lvl"
 
 [node name="HealthBar" type="ProgressBar" parent="Panel/VBoxContainer"]
+modulate = Color( 0.980392, 0.286275, 0.286275, 1 )
 margin_top = 18.0
 margin_right = 306.0
 margin_bottom = 32.0
+step = 1.0
 
 [node name="ManaBar" type="ProgressBar" parent="Panel/VBoxContainer"]
+modulate = Color( 0.223529, 0.235294, 0.858824, 1 )
 margin_top = 36.0
 margin_right = 306.0
 margin_bottom = 50.0
+step = 1.0
 
 [node name="EqLabel" type="Label" parent="Panel/VBoxContainer"]
 margin_left = 118.0

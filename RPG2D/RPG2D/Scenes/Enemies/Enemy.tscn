@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Sprites/Enemies/Enemy 14-1.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Effects/TargetEffect.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31, 31 )
@@ -25,35 +25,35 @@ region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 64, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 32, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 1 )
@@ -80,12 +80,12 @@ animations = [ {
 }, {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
-"name": "walk_down",
+"name": "walk_left",
 "speed": 8.0
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
-"name": "walk_left",
+"name": "walk_down",
 "speed": 8.0
 }, {
 "frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
@@ -145,12 +145,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TargetEffect" type="Node2D" parent="."]
+[node name="TargetEffect" parent="." instance=ExtResource( 3 )]
 visible = false
-z_index = -1
-
-[node name="Sprite" type="Sprite" parent="TargetEffect"]
-texture = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -165,6 +161,10 @@ collision_mask = 17
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlapingArea"]
 shape = SubResource( 19 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="input_event" from="." to="." method="_on_Enemy_input_event"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="area_entered" from="OverlapingArea" to="." method="_on_OverlapingArea_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
