@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 tool
 var tile_size = 64
@@ -25,5 +25,6 @@ func _ready():
     drag_helper.visible = false
 
 func _on_Item_mouse_entered():
-    drag_helper.set_process_input(true)
-    drag_helper.visible = true
+    if !get_overlapping_areas():
+        drag_helper.set_process_input(true)
+        drag_helper.visible = true

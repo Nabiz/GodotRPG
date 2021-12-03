@@ -75,6 +75,10 @@ ui_mouse_left={
 2d_physics/layer_3="Items"
 2d_render/layer_4="Environment"
 2d_physics/layer_4="Environment"
+2d_render/layer_5="EnemiesOverlapingCheck"
+2d_physics/layer_5="EnemiesOverlapingCheck"
+2d_render/layer_6="ReservedSpace"
+2d_physics/layer_6="ReservedSpace"
 
 [physics]
 

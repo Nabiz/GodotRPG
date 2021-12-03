@@ -50,16 +50,17 @@ func attack():
 var hit_effect = preload("res://Scenes/Effects/HitEffect.tscn")
 
 func take_damage(damage):
-    var health_lost = damage - def
-    health -= health_lost
+    var health_loss = max(0, damage - def)
+    health -= health_loss
     gui.update_bars(health, mana)
     health_bar.value = health
     mana_bar.value = mana
     
-    var hit_effect_instance = hit_effect.instance()
-    add_child(hit_effect_instance)
-    hit_effect_instance.get_node("Label").text = str(health_lost)
-    hit_effect_instance.global_position = position
+    if health_loss > 0:
+        var hit_effect_instance = hit_effect.instance()
+        add_child(hit_effect_instance)
+        hit_effect_instance.get_node("Label").text = str(health_loss)
+        hit_effect_instance.global_position = position
 
 
 func _process(_delta):
@@ -121,3 +122,13 @@ func _on_Tween_tween_all_completed():
 
 func _on_Timer_timeout():
     is_attack_cooldown = false
+
+var health_gain = 2
+var mana_gain = 1
+
+func _on_RegenerationTimer_timeout():
+    health = min(health+health_gain, max_health)
+    mana = min(mana+mana_gain, max_mana)
+    gui.update_bars(health, mana)
+    health_bar.value = health
+    mana_bar.value = mana

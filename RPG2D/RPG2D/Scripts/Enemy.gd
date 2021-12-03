@@ -24,12 +24,12 @@ func _ready():
     health_bar = $Node2D/VBoxContainer/ProgressBar
     health_bar.set_max(health)
     health_bar.set_value(health)
-    if get_node("../Player"):
-        player = get_node("../Player")
+    #if get_node("../Player"):
+    #    player = get_node("../Player")
     if get_node("../Pathfinding"):
         pathfinding = get_node("../Pathfinding")
 
-var attack = 1
+var damage = 4
 var can_attack = true
 
 func attack():
@@ -37,18 +37,18 @@ func attack():
         if global_position.distance_to(player.global_position) < 1.42 * tile_size:
             if can_attack:
                 can_attack = false
-                player.take_damage(1)
+                player.take_damage(damage)
                 $Timer.start()
 
 func _on_Timer_timeout():
     can_attack = true
 
-func take_damage(attack):
+func take_damage(health_loss):
     var hit_effect_instance = hit_effect.instance()
     add_child(hit_effect_instance)
-    hit_effect_instance.get_node("Label").text = str(attack)
+    hit_effect_instance.get_node("Label").text = str(health_loss)
     hit_effect_instance.global_position = position
-    health -= attack
+    health -= health_loss
     health_bar.set_value(health)
     if health <= 0:
         if player:
@@ -170,3 +170,7 @@ func _on_OverlapingArea_area_entered(_area):
     rng.randomize()
     yield(get_tree().create_timer(0.5*rng.randi_range(0, 3)), "timeout")
     is_moving = false
+
+
+func _on_AggroArea_area_entered(area):
+    player = area
