@@ -31,12 +31,12 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 651.0
-margin_bottom = 1527.0
+margin_right = 313.0
+margin_bottom = 1073.0
 
 [node name="NickContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_left = 274.0
-margin_right = 369.0
+margin_left = 105.0
+margin_right = 200.0
 margin_bottom = 14.0
 size_flags_horizontal = 4
 
@@ -55,30 +55,37 @@ text = "1 lvl"
 [node name="HealthBar" type="ProgressBar" parent="Panel/VBoxContainer"]
 modulate = Color( 0.980392, 0.286275, 0.286275, 1 )
 margin_top = 18.0
-margin_right = 644.0
+margin_right = 306.0
 margin_bottom = 32.0
 step = 1.0
 
 [node name="ManaBar" type="ProgressBar" parent="Panel/VBoxContainer"]
 modulate = Color( 0.223529, 0.235294, 0.858824, 1 )
 margin_top = 36.0
-margin_right = 644.0
+margin_right = 306.0
 margin_bottom = 50.0
 step = 1.0
 
-[node name="EqLabel" type="Label" parent="Panel/VBoxContainer"]
-margin_left = 287.0
+[node name="ExpBar" type="ProgressBar" parent="Panel/VBoxContainer"]
+modulate = Color( 0.301961, 0.803922, 0.215686, 1 )
 margin_top = 54.0
-margin_right = 356.0
+margin_right = 306.0
 margin_bottom = 68.0
+step = 1.0
+
+[node name="EqLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_left = 118.0
+margin_top = 72.0
+margin_right = 187.0
+margin_bottom = 86.0
 size_flags_horizontal = 4
 text = "Equipment"
 
 [node name="GridContainerEq" type="GridContainer" parent="Panel/VBoxContainer"]
-margin_left = 222.0
-margin_top = 72.0
-margin_right = 422.0
-margin_bottom = 272.0
+margin_left = 53.0
+margin_top = 90.0
+margin_right = 253.0
+margin_bottom = 290.0
 size_flags_horizontal = 4
 columns = 3
 
@@ -117,18 +124,18 @@ margin_bottom = 200.0
 type = "shoes"
 
 [node name="InventoryLabel" type="Label" parent="Panel/VBoxContainer"]
-margin_left = 291.0
-margin_top = 276.0
-margin_right = 352.0
-margin_bottom = 290.0
+margin_left = 122.0
+margin_top = 294.0
+margin_right = 183.0
+margin_bottom = 308.0
 size_flags_horizontal = 4
 text = "Inventory"
 
 [node name="GoldContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_left = 224.0
-margin_top = 294.0
-margin_right = 420.0
-margin_bottom = 358.0
+margin_left = 55.0
+margin_top = 312.0
+margin_right = 251.0
+margin_bottom = 376.0
 size_flags_horizontal = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -156,10 +163,10 @@ vframes = 22
 frame = 202
 
 [node name="GridContainerInventory" type="GridContainer" parent="Panel/VBoxContainer"]
-margin_left = 182.0
-margin_top = 362.0
-margin_right = 462.0
-margin_bottom = 714.0
+margin_left = 13.0
+margin_top = 380.0
+margin_right = 293.0
+margin_bottom = 732.0
 size_flags_horizontal = 4
 custom_constants/vseparation = 8
 custom_constants/hseparation = 8
@@ -268,21 +275,21 @@ margin_right = 280.0
 margin_bottom = 352.0
 
 [node name="StatsLabel" type="Label" parent="Panel/VBoxContainer"]
-margin_left = 293.0
-margin_top = 718.0
-margin_right = 351.0
-margin_bottom = 732.0
+margin_left = 124.0
+margin_top = 736.0
+margin_right = 182.0
+margin_bottom = 750.0
 size_flags_horizontal = 4
 text = "Statsitics"
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
-margin_top = 736.0
-margin_right = 644.0
-margin_bottom = 856.0
+margin_top = 754.0
+margin_right = 306.0
+margin_bottom = 874.0
 rect_min_size = Vector2( 0, 120 )
 
 [node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/MarginContainer"]
-margin_right = 644.0
+margin_right = 306.0
 margin_bottom = 120.0
 text = " Attack:
  Defence:
@@ -293,9 +300,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 860.0
-margin_right = 644.0
-margin_bottom = 880.0
+margin_top = 878.0
+margin_right = 306.0
+margin_bottom = 898.0
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 margin_right = 77.0

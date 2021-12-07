@@ -20,16 +20,38 @@ var health = 60
 var mana = 5
 
 var level = 1
-var experience = 0 
+var experience = 0
+var exp_to_next_level = 50
 
 func _ready():
     position = position.snapped(Vector2.ONE * tile_size/2)
-    gui.set_bars_max_value(max_health, max_mana)
+    
+    exp_to_next_level = 50 * pow(2, level-1)
+
     health_bar.max_value = max_health
     mana_bar.max_value = max_mana
-    gui.update_bars(health, mana)
     health_bar.value = health
     mana_bar.value = mana
+    gui.set_bars_max_value(max_health, max_mana, exp_to_next_level)
+    gui.update_bars(health, mana, experience)
+
+func gain_exp(exp_gain):
+    experience += exp_gain
+    if experience >= exp_to_next_level:
+        experience-=exp_to_next_level
+        level+=1
+        gui.set_level_label(level)
+        exp_to_next_level = 50 * pow(2, level-1)
+        max_health+=20
+        max_mana+=5
+        health=max_health
+        mana=max_mana
+        health_bar.max_value = max_health
+        mana_bar.max_value = max_mana
+        health_bar.value = health
+        mana_bar.value = mana
+        gui.set_bars_max_value(max_health, max_mana, exp_to_next_level)
+    gui.update_bars(health, mana, experience)
 
 func set_stats(new_min_attack, new_max_attack, new_def, new_magic_def):
     min_attack = new_min_attack
@@ -52,7 +74,7 @@ var hit_effect = preload("res://Scenes/Effects/HitEffect.tscn")
 func take_damage(damage):
     var health_loss = max(0, damage - def)
     health -= health_loss
-    gui.update_bars(health, mana)
+    gui.update_bars(health, mana, experience)
     health_bar.value = health
     mana_bar.value = mana
     
@@ -81,7 +103,6 @@ func _process(_delta):
             if !is_obstacle(Vector2.DOWN):
                 $AnimatedSprite.set_animation("walk_down")
                 tween_player(Vector2.DOWN)
-
     attack()
 
 
@@ -129,6 +150,6 @@ var mana_gain = 1
 func _on_RegenerationTimer_timeout():
     health = min(health+health_gain, max_health)
     mana = min(mana+mana_gain, max_mana)
-    gui.update_bars(health, mana)
+    gui.update_bars(health, mana, experience)
     health_bar.value = health
     mana_bar.value = mana

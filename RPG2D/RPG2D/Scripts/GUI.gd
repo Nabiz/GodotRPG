@@ -7,6 +7,9 @@ onready var stats_text = $Panel/VBoxContainer/MarginContainer/TextEdit
 onready var health_bar = $Panel/VBoxContainer/HealthBar
 onready var mana_bar = $Panel/VBoxContainer/ManaBar
 
+onready var exp_bar = $Panel/VBoxContainer/ExpBar
+onready var level_label = $Panel/VBoxContainer/NickContainer/LevelLabel
+
 onready var money_text = $Panel/VBoxContainer/GoldContainer/GoldText
 
 onready var helmet_slot = $Panel/VBoxContainer/GridContainerEq/VBoxContainer/HelmetSlot
@@ -22,13 +25,18 @@ func _ready():
         player = get_parent().get_parent()
         set_stats_text()
 
-func set_bars_max_value(max_health, max_mana):
+func set_level_label(level):
+    level_label.text = str(level) + " lvl"
+
+func set_bars_max_value(max_health, max_mana, max_exp):
     health_bar.max_value = max_health
     mana_bar.max_value = max_mana
+    exp_bar.max_value = max_exp
     
-func update_bars(health, mana):
+func update_bars(health, mana, experience):
     health_bar.value = health
     mana_bar.value = mana
+    exp_bar.value = experience
 
 func _on_Button_pressed():
     get_tree().quit(0)

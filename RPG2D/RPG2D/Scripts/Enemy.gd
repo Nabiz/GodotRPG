@@ -6,6 +6,7 @@ var player = null
 var health_bar
 var health
 
+var experience = 10
 
 var pathfinding = null
 var previous_position
@@ -80,6 +81,7 @@ func get_random_loot():
     return [money, item1, item2, item3, item4]
 
 func die():
+    player.gain_exp(experience)
     var loot = loot_scene.instance()
     loot.global_position = global_position.snapped(Vector2.ONE * tile_size/2)
     self.get_parent().add_child(loot)
