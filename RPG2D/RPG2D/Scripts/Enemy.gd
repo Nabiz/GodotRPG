@@ -4,7 +4,7 @@ var tile_size = 64
 
 var player = null
 var health_bar
-var health
+var health = 20
 
 var experience = 10
 
@@ -21,8 +21,7 @@ func _ready():
     global_position = global_position.snapped(Vector2.ONE * tile_size/2)
     previous_position = global_position
     input_pickable = true
-    health = 20
-    health_bar = $Node2D/VBoxContainer/ProgressBar
+    health_bar = $Node2D/ProgressBar
     health_bar.set_max(health)
     health_bar.set_value(health)
     #if get_node("../Player"):
@@ -97,6 +96,9 @@ var is_moving = false
 var reserved_area = null
 
 func _process(_delta):
+    process()
+
+func process():        
     attack()
     if path and !is_moving:
         if !is_obstacle(path[0] - global_position):
@@ -113,7 +115,6 @@ func _process(_delta):
             path = pathfinding.get_path_array(global_position, player.get_free_neighbour_tile())
             if path:
                 path.remove(0)
-        
 
 func tween_move(destination_position):
     previous_position = global_position
