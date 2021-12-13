@@ -84,6 +84,16 @@ func take_damage(damage):
         hit_effect_instance.get_node("Label").text = str(health_loss)
         hit_effect_instance.global_position = position
 
+func eat(healt_gain, mana_gain):
+    health+=healt_gain
+    if health > max_health:
+        health = max_health
+    mana+=mana_gain
+    if mana > max_mana:
+        mana = max_mana
+    gui.update_bars(health, mana, experience)
+    health_bar.value = health
+    mana_bar.value = mana
 
 func _process(_delta):
     if !is_moving:

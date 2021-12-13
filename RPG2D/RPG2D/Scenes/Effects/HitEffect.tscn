@@ -42,7 +42,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 20, -36 ), Vector2( 20, -60 ) ]
+"values": [ Vector2( 32, -32 ), Vector2( 32, -60 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("CPUParticles2D:scale_amount")
@@ -63,6 +63,7 @@ outline_size = 1
 font_data = ExtResource( 2 )
 
 [node name="HitEffect" type="Node2D"]
+z_index = 10
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -8 )
@@ -90,8 +91,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 20.0
 margin_top = -36.0
-margin_right = 36.0
-margin_bottom = -22.0
+margin_right = 41.0
+margin_bottom = -21.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 2 )
