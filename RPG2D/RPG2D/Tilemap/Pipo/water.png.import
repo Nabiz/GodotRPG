@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Trees_and_bushes.png-098e3ceb4494ac7f839ab2ec0d2aad3a.stex"
+path="res://.import/water.png-dd57f70ef99dc9f0bd03995a39c10771.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemap/BasicVillageTileset/Trees_and_bushes.png"
-dest_files=[ "res://.import/Trees_and_bushes.png-098e3ceb4494ac7f839ab2ec0d2aad3a.stex" ]
+source_file="res://Tilemap/Pipo/water.png"
+dest_files=[ "res://.import/water.png-dd57f70ef99dc9f0bd03995a39c10771.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
