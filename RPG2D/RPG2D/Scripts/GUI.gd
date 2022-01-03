@@ -45,6 +45,12 @@ func add_money(money):
     var current_money = int(money_text.text)
     money_text.text = str(current_money + money)
 
+func get_money():
+    return int(money_text.text)
+
+func get_inventory_slots():
+    return $Panel/VBoxContainer/GridContainerInventory.get_children()
+
 func set_stats_text():
     stats_text.text = \
     "Attack: " + str(player.min_attack) + "-" + str(player.max_attack) +\

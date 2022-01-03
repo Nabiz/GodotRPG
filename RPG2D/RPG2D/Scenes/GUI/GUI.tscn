@@ -145,7 +145,7 @@ __meta__ = {
 margin_right = 128.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 128, 32 )
-text = "0"
+text = "1000"
 readonly = true
 
 [node name="TextureRect" type="CenterContainer" parent="Panel/VBoxContainer/GoldContainer"]
