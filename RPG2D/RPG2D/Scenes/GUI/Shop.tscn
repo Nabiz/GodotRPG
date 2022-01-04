@@ -5,8 +5,6 @@
 [node name="Shop" type="Node2D"]
 z_index = 1
 script = ExtResource( 1 )
-items_dict = {
-}
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchor_left = 0.5

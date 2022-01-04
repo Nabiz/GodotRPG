@@ -32,5 +32,3 @@ __meta__ = {
 
 [node name="Shop" parent="." instance=ExtResource( 3 )]
 visible = false
-items_dict = {
-}
