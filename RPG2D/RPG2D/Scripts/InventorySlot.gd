@@ -53,6 +53,6 @@ func _on_InventorySlot_gui_input(event):
     if event.is_action_pressed("ui_mouse_right") and !is_mouse_hold:
         var consumable_stats = $ConsumableItemStats.get_consumable_stats(id)
         if consumable_stats:
-            var player = get_tree().root.get_child(0).get_node("Player")
+            var player = get_tree().root.get_child(1).get_node("Player")
             player.eat(consumable_stats.get("health", 0), consumable_stats.get("mana", 0))
             set_id(null_id)

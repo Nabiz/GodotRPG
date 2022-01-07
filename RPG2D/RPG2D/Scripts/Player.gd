@@ -20,24 +20,73 @@ var health = 60
 var mana = 5
 
 var level = 1
+var max_level = 8
 var experience = 0
 var exp_to_next_level = 50
 
-func _ready():
-    position = position.snapped(Vector2.ONE * tile_size/2)
-    
-    exp_to_next_level = 50 * pow(2, level-1)
+var player_info = null
 
+func set_player_info():
+    min_attack = player_info.min_attack
+    max_attack = player_info.max_attack
+    def = player_info.def
+    magic_def = player_info.magic_def
+    max_health = player_info.max_health
+    max_mana = player_info.max_mana
+    health = player_info.health
+    mana = player_info.mana
+    max_level = player_info.max_level
+    level = player_info.level
+    experience = player_info.experience
+    exp_to_next_level = player_info.exp_to_next_level
+    
+    gui.money_text.text = str(player_info.money)
+    
+    gui.helmet_slot.set_id(player_info.helmet)
+    gui.weapon_slot.set_id(player_info.weapon)
+    gui.armor_slot.set_id(player_info.armor)
+    gui.offhand_slot.set_id(player_info.offhand)
+    gui.shoes_slot.set_id(player_info.shoes)
+
+func export_player_info():
+    player_info.min_attack = min_attack
+    player_info.max_attack = max_attack
+    player_info.def = def
+    player_info.magic_def = magic_def
+    player_info.max_health = max_health
+    player_info.max_mana = max_mana
+    player_info.health = health
+    player_info.mana = mana
+    player_info.max_level = max_level
+    player_info.level = level
+    player_info.experience = experience
+    player_info.exp_to_next_level =  exp_to_next_level
+    
+    player_info.money = int(gui.get_money())
+
+    player_info.helmet = gui.helmet_slot.id
+    player_info.weapon = gui.weapon_slot.id
+    player_info.armor = gui.armor_slot.id
+    player_info.offhand = gui.offhand_slot.id
+    player_info.shoes = gui.shoes_slot.id
+
+func _ready():
+    player_info = PlayerInfo
+    set_player_info()
+    position = position.snapped(Vector2.ONE * tile_size/2)
+    exp_to_next_level = 50 * pow(2, level-1)
     health_bar.max_value = max_health
     mana_bar.max_value = max_mana
     health_bar.value = health
     mana_bar.value = mana
     gui.set_bars_max_value(max_health, max_mana, exp_to_next_level)
     gui.update_bars(health, mana, experience)
+    gui.set_level_label(level)
+    gui.set_stats_text()
 
 func gain_exp(exp_gain):
     experience += exp_gain
-    if experience >= exp_to_next_level:
+    if experience >= exp_to_next_level and level < max_level:
         experience-=exp_to_next_level
         level+=1
         gui.set_level_label(level)
@@ -84,8 +133,8 @@ func take_damage(damage):
         hit_effect_instance.get_node("Label").text = str(health_loss)
         hit_effect_instance.global_position = position
 
-func eat(healt_gain, mana_gain):
-    health+=healt_gain
+func eat(health_gain, mana_gain):
+    health+=health_gain
     if health > max_health:
         health = max_health
     mana+=mana_gain
@@ -163,3 +212,4 @@ func _on_RegenerationTimer_timeout():
     gui.update_bars(health, mana, experience)
     health_bar.value = health
     mana_bar.value = mana
+
