@@ -38,7 +38,7 @@ func _input(event):
         if get_viewport().get_mouse_position().x < 1600:
             var item = item_scene.instance()
             item.id = id
-            get_tree().root.get_child(0).add_child(item)
+            get_tree().root.get_child(1).add_child(item)
             item.global_position = (get_global_mouse_position()-Vector2.ONE * tile_size/2).snapped(Vector2.ONE * tile_size) + Vector2.ONE * tile_size/2
             yield(get_tree().create_timer(0.1), "timeout")
             if item.get_overlapping_areas().size() > 0 or item.get_overlapping_bodies().size() > 0:

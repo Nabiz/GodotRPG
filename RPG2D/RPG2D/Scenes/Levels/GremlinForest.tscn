@@ -106,9 +106,6 @@ position = Vector2( 2656, 2080 )
 position = Vector2( 928, 1632.05 )
 
 [node name="ChangeLevelArea" parent="." instance=ExtResource( 7 )]
-collision_layer = 0
-
-[node name="CollisionShape2D" parent="ChangeLevelArea" index="0"]
-position = Vector2( 4013.58, 2199 )
+position = Vector2( 4007.73, 2209.58 )
 
 [editable path="ChangeLevelArea"]
