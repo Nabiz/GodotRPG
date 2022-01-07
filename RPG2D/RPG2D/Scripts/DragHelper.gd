@@ -17,10 +17,11 @@ func set_item(item):
     _item = item
 
 func get_drag_data(_position):
-    if $Position2D.global_position.distance_to(player.global_position) < 1.42 * tile_size:
-        return [_item.id, _item]
-    else:
-        return false
+    if player:
+        if $Position2D.global_position.distance_to(player.global_position) < 1.42 * tile_size:
+            return [_item.id, _item]
+        else:
+            return false
 
 func _on_DragHelper_mouse_exited():
     if !is_mouse_hold:

@@ -14,7 +14,7 @@ func set_price(new_price):
 
 
 func _on_BuyButton_pressed():
-    var player = get_tree().root.get_child(0).get_node("Player")
+    var player = get_tree().root.get_child(1).get_node("Player")
     if player:
         if player.gui.get_money() >= price:
             var inventory_slots = player.gui.get_inventory_slots()
