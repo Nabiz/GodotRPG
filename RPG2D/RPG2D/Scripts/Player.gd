@@ -47,6 +47,11 @@ func set_player_info():
     gui.armor_slot.set_id(player_info.armor)
     gui.offhand_slot.set_id(player_info.offhand)
     gui.shoes_slot.set_id(player_info.shoes)
+    
+    var i = 0
+    for slot in gui.get_inventory_slots():
+        slot.set_id(player_info.inventory[i])
+        i+=1
 
 func export_player_info():
     player_info.min_attack = min_attack
@@ -69,6 +74,11 @@ func export_player_info():
     player_info.armor = gui.armor_slot.id
     player_info.offhand = gui.offhand_slot.id
     player_info.shoes = gui.shoes_slot.id
+
+    var i = 0
+    for slot in gui.get_inventory_slots():
+        player_info.inventory[i]= slot.id
+        i+=1
 
 func _ready():
     player_info = PlayerInfo

@@ -24,6 +24,13 @@ var armor = 12
 var offhand = 12
 var shoes = 12
 
+var inventory = [12, 12, 12, 12,
+                 12, 12, 12, 12,
+                 12, 12, 12, 12,
+                 12, 12, 12, 12,
+                 12, 12, 12, 12,
+                ]
+
 func _ready():
     load_data()
 
@@ -52,6 +59,7 @@ func create_dictionary():
         "armor": armor,
         "offhand": offhand,
         "shoes": shoes,
+        "inventory": inventory
     }
     return player_info_dict
 
@@ -87,6 +95,7 @@ func set_player_info(pid):
         armor = pid["armor"]
         offhand = pid["offhand"]
         shoes = pid["shoes"]
+        inventory = pid["inventory"]
 
 func save_data():
     var file = File.new()
