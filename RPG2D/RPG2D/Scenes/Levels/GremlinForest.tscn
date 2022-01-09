@@ -107,5 +107,4 @@ position = Vector2( 928, 1632.05 )
 
 [node name="ChangeLevelArea" parent="." instance=ExtResource( 7 )]
 position = Vector2( 4007.73, 2209.58 )
-
-[editable path="ChangeLevelArea"]
+level_scene = "res://Scenes/Levels/Crossroads1.tscn"
