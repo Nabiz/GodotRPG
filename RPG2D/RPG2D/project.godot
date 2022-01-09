@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="RPG2D"
-run/main_scene="res://Scenes/Levels/GremlinForest.tscn"
+run/main_scene="res://Scenes/Levels/Village.tscn"
 config/icon="res://project_icon.png"
 
 [autoload]

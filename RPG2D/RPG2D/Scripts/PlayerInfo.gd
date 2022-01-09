@@ -15,11 +15,11 @@ var max_level = 8
 var experience = 0
 var exp_to_next_level = 50
 
-var money = 100
+var money = 0
 #var nickname = "Warrior"
 
 var helmet = 12
-var weapon = 12
+var weapon = 83
 var armor = 12
 var offhand = 12
 var shoes = 12
