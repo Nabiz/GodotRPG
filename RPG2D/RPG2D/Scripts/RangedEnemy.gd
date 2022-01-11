@@ -4,9 +4,10 @@ var attack_range = 5
 var attack_effect = preload("res://Scenes/Effects/ArrowEffect.tscn")
 
 func _ready():
-    health = 20
-    experience = 10
-    damage = 4
+    health = 35
+    experience = 40
+    damage = 15
+    step_time = 0.5
     ._ready()
 
 func _process(_delta):
@@ -35,7 +36,9 @@ func attack():
             if can_attack:
                 create_attack_effect()
                 can_attack = false
-                player.take_damage(damage)
+                var rng = RandomNumberGenerator.new()
+                rng.randomize()
+                player.take_damage(rng.randi_range(1, damage))
                 $Timer.start()
 
 func create_attack_effect():

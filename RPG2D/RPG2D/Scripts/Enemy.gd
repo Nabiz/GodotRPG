@@ -8,6 +8,9 @@ var health = 20
 
 var experience = 10
 
+var damage = 8
+var can_attack = true
+
 var pathfinding = null
 var previous_position
 
@@ -29,15 +32,14 @@ func _ready():
     if get_node("../Pathfinding"):
         pathfinding = get_node("../Pathfinding")
 
-var damage = 4
-var can_attack = true
-
 func attack():
     if player:
         if global_position.distance_to(player.global_position) < 1.42 * tile_size:
             if can_attack:
                 can_attack = false
-                player.take_damage(damage)
+                var rng = RandomNumberGenerator.new()
+                rng.randomize()
+                player.take_damage(rng.randi_range(1, damage))
                 $Timer.start()
 
 func _on_Timer_timeout():
@@ -72,7 +74,7 @@ func _on_Enemy_input_event(_viewport, event, _shape_idx):
 func get_random_loot():
     var rng = RandomNumberGenerator.new()
     rng.randomize()
-    var money = rng.randi_range(0, 5)
+    var money = rng.randi_range(0, 10)
     var item1 = 189 if rng.randf() < 0.2 else 12
     var item2 = 224
     var item3 = 12
@@ -116,13 +118,15 @@ func process():
             if path:
                 path.remove(0)
 
+var step_time = 1
+
 func tween_move(destination_position):
     previous_position = global_position
     is_moving = true
     var tween = $Tween
     $AnimatedSprite.play()
     tween.interpolate_property(self, "global_position", global_position,
-    destination_position, 1, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+    destination_position, step_time, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
     tween.start()
 
 func set_animtaion(vector):

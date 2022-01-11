@@ -77,6 +77,6 @@ func _on_item_changed():
             magic_def+=stats.get("magic_def")
     if min_attack == 0:
         min_attack = 1
-        max_attack = 2
+        max_attack = 1
     player.set_stats(min_attack, max_attack, def, magic_def)
     set_stats_text()

@@ -22,5 +22,4 @@ func _on_BuyButton_pressed():
                 if slot.id == slot.null_id:
                     player.gui.add_money(-price)
                     slot.set_id(id)
-                    print("DUPA KUPIONE")
                     break

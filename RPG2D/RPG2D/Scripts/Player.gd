@@ -84,7 +84,7 @@ func _ready():
     player_info = PlayerInfo
     set_player_info()
     position = position.snapped(Vector2.ONE * tile_size/2)
-    exp_to_next_level = 50 * pow(2, level-1)
+    exp_to_next_level = 100 * pow(2, level-1)
     health_bar.max_value = max_health
     mana_bar.max_value = max_mana
     health_bar.value = health
