@@ -7,8 +7,8 @@ var stats_dict = {
     "113": {"def": 2}, # strong helmet
     
     "83": {"min_attack": 1, "max_attack": 10}, # weak sword
-    "81": {"min_attack": 10, "max_attack": 20}, # medium sword
-    "82": {"min_attack": 20, "max_attack": 30}, # strong sword
+    "81": {"min_attack": 1, "max_attack": 20}, # medium sword
+    "82": {"min_attack": 1, "max_attack": 30}, # strong sword
     
     "118": {"def": 2, "magic_def": 0}, # weak armor
     "116": {"def": 3, "magic_def": 0}, # medium armor

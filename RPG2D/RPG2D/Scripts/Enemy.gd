@@ -8,7 +8,7 @@ var health = 20
 
 var experience = 10
 
-var damage = 8
+var damage = 6
 var can_attack = true
 
 var pathfinding = null
@@ -75,9 +75,9 @@ func get_random_loot():
     var rng = RandomNumberGenerator.new()
     rng.randomize()
     var money = rng.randi_range(0, 10)
-    var item1 = 189 if rng.randf() < 0.2 else 12
-    var item2 = 224
-    var item3 = 12
+    var item1 = 224 if rng.randf() < 0.25 else 12
+    var item2 = 114 if rng.randf() < 0.05 else 12
+    var item3 = 130 if rng.randf() < 0.05 else 12
     var item4 = 12
     return [money, item1, item2, item3, item4]
 

@@ -12,7 +12,6 @@ texture = ExtResource( 3 )
 
 [node name="Label" parent="." index="2"]
 text = "Bert"
-align = 1
 
 [node name="Shop" parent="." index="3"]
 columns = 2
