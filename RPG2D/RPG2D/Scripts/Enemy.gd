@@ -75,7 +75,7 @@ func get_random_loot():
     var rng = RandomNumberGenerator.new()
     rng.randomize()
     var money = rng.randi_range(0, 10)
-    var item1 = 224 if rng.randf() < 0.25 else 12
+    var item1 = 224 if rng.randf() < 0.2 else 12
     var item2 = 114 if rng.randf() < 0.05 else 12
     var item3 = 130 if rng.randf() < 0.05 else 12
     var item4 = 12

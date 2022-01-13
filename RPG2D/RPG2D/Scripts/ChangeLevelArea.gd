@@ -9,8 +9,8 @@ var player = null
 
 func _on_ChangeLevelArea_area_entered(area):
     if area.name == "Player":
+        area.export_player_info()
         if save_game:
-            area.export_player_info()
             PlayerInfo.save_data()
         popup.show()
 

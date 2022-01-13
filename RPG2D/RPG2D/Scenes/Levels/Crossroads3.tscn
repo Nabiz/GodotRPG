@@ -17,7 +17,7 @@ size_x = 42
 size_y = 32
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 224, 1248 )
+position = Vector2( 1184, 160 )
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 416, 1568 )

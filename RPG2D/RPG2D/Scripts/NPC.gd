@@ -6,8 +6,8 @@ var is_shop_opened = false
 var player = null
 onready var shop = $Shop
 
-var items_dict = {96: 20, 97: 100, 98: 300, 114: 20, 113: 150,
-                  118: 50, 116: 250, 117: 1000, 81: 250, 82: 1000}
+var items_dict = {96: 20, 97: 200, 98: 500, 114: 20, 113: 250,
+                  118: 50, 116: 300, 117: 1000, 81: 250, 82: 1000}
 
 func _ready():
     add_items_to_shop()

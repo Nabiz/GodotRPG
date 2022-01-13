@@ -14,4 +14,4 @@ texture = ExtResource( 3 )
 text = "Bert"
 
 [node name="Shop" parent="." index="3"]
-columns = 2
+columns = 3

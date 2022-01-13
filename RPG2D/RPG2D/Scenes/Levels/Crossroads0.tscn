@@ -60,4 +60,22 @@ level_scene = "res://Scenes/Levels/GremlinForest.tscn"
 text = "Do you want to leave current level?
 (Suggested level: 2-4)"
 
+[node name="ChangeLevelArea3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2657.59, 738.883 )
+level_scene = "res://Scenes/Levels/GoblinPlain.tscn"
+
+[node name="Label" parent="ChangeLevelArea3/PanelContainer/VBoxContainer" index="0"]
+text = "Do you want to leave current level?
+(Suggested level: 4-6)"
+
+[node name="ChangeLevelArea4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1184, 36.27 )
+level_scene = "res://Scenes/Levels/Cmentary.tscn"
+
+[node name="Label" parent="ChangeLevelArea4/PanelContainer/VBoxContainer" index="0"]
+text = "Do you want to leave current level?
+(Suggested level: 7-8)"
+
 [editable path="ChangeLevelArea2"]
+[editable path="ChangeLevelArea3"]
+[editable path="ChangeLevelArea4"]

@@ -13,7 +13,7 @@ var mana = 5
 var level = 1
 var max_level = 8
 var experience = 0
-var exp_to_next_level = 100
+var exp_to_next_level = 50
 
 var money = 0
 #var nickname = "Warrior"
