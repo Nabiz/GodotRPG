@@ -142,6 +142,9 @@ func take_damage(damage):
         add_child(hit_effect_instance)
         hit_effect_instance.get_node("Label").text = str(health_loss)
         hit_effect_instance.global_position = position
+    
+    if health <= 0:
+        get_tree().change_scene_to(load("res://Scenes/Levels/Village.tscn"))
 
 func eat(health_gain, mana_gain):
     health+=health_gain

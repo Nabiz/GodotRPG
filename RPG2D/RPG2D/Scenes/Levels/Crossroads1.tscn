@@ -51,6 +51,7 @@ position = Vector2( 1760, 1376 )
 
 [node name="ChangeLevelArea" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1184, 2016 )
+save_game = true
 
 [node name="ChangeLevelArea2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 78.0664, 1248 )

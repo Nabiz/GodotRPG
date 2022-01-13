@@ -1,6 +1,7 @@
 extends Area2D
 
 export var level_scene = "res://Scenes/Levels/Village.tscn"
+export var save_game = false
 
 onready var popup = $PanelContainer
 
@@ -8,8 +9,9 @@ var player = null
 
 func _on_ChangeLevelArea_area_entered(area):
     if area.name == "Player":
-        area.export_player_info()
-        PlayerInfo.save_data()
+        if save_game:
+            area.export_player_info()
+            PlayerInfo.save_data()
         popup.show()
 
 func _on_YES_pressed():
