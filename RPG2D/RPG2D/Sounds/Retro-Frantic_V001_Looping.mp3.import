@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Retro-Frantic_V001_Looping.mp3-3a75547d0fcbd5ed039cbf131f1da031.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Retro-Frantic_V001_Looping.mp3"
+dest_files=[ "res://.import/Retro-Frantic_V001_Looping.mp3-3a75547d0fcbd5ed039cbf131f1da031.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

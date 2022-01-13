@@ -22,7 +22,8 @@ func check_empty():
 func _on_Button_pressed():
     var money = int(money_text.text)
     money_text.text = "0"
-    emit_signal("money_taken", money)
+    if money > 0:
+        emit_signal("money_taken", money)
 
 func set_loot(money, item0, item1, item2, item3):
     money_text.text = str(money)

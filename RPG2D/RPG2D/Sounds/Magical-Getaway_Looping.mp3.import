@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Magical-Getaway_Looping.mp3-61f2c7814c4623a4859238891a6c563c.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Magical-Getaway_Looping.mp3"
+dest_files=[ "res://.import/Magical-Getaway_Looping.mp3-61f2c7814c4623a4859238891a6c563c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=-1.0

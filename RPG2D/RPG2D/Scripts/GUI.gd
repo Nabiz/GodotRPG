@@ -19,11 +19,20 @@ onready var offhand_slot = $Panel/VBoxContainer/GridContainerEq/VBoxContainer/HB
 onready var shoes_slot = $Panel/VBoxContainer/GridContainerEq/VBoxContainer/ShoesSlot
 var eq_slots = null
 
+onready var money_sound = $AudioStreamPlayer
+onready var mute_button = $Panel/VBoxContainer/HBoxContainer/MuteButton
+
 func _ready():
     eq_slots = [helmet_slot, weapon_slot, armor_slot, offhand_slot, shoes_slot]
     if get_parent().get_parent():
         player = get_parent().get_parent()
         set_stats_text()
+    
+    var bus_index = AudioServer.get_bus_index("Master")
+    if AudioServer.is_bus_mute(bus_index):
+        mute_button.text = "Unmute sound"
+    else:
+        mute_button.text = "Mute sound"
 
 func set_level_label(level):
     level_label.text = str(level) + " lvl"
@@ -42,6 +51,7 @@ func _on_Button_pressed():
     get_tree().quit(0)
 
 func add_money(money):
+    money_sound.play()
     var current_money = int(money_text.text)
     money_text.text = str(current_money + money)
 
@@ -80,3 +90,12 @@ func _on_item_changed():
         max_attack = 1
     player.set_stats(min_attack, max_attack, def, magic_def)
     set_stats_text()
+
+func _on_MuteButton_pressed():
+    var bus_index = AudioServer.get_bus_index("Master")
+    if AudioServer.is_bus_mute(bus_index):
+        AudioServer.set_bus_mute(bus_index, false)
+        mute_button.text = "Mute sound"
+    else:
+        AudioServer.set_bus_mute(bus_index, true)
+        mute_button.text = "Unmute sound"

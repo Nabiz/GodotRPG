@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Of-Knights-and-Kings.mp3-b2a38631952a6eb9500fdc0e42a6dae7.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Of-Knights-and-Kings.mp3"
+dest_files=[ "res://.import/Of-Knights-and-Kings.mp3-b2a38631952a6eb9500fdc0e42a6dae7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
