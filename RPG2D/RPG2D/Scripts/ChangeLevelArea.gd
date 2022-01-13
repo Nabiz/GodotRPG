@@ -9,12 +9,13 @@ var player = null
 
 func _on_ChangeLevelArea_area_entered(area):
     if area.name == "Player":
-        area.export_player_info()
-        if save_game:
-            PlayerInfo.save_data()
+        player = area
         popup.show()
 
 func _on_YES_pressed():
+    player.export_player_info()
+    if save_game:
+        PlayerInfo.save_data()
     get_tree().change_scene_to(load(level_scene))
 
 func _on_NO_pressed():

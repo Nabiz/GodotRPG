@@ -12,4 +12,4 @@ dest_files=[ "res://.import/Magical-Getaway_Looping.mp3-61f2c7814c4623a485923889
 [params]
 
 loop=true
-loop_offset=-1.0
+loop_offset=0.0
