@@ -31,9 +31,6 @@ var inventory = [224, 224, 224, 12,
                  12, 12, 12, 12,
                 ]
 
-func _ready():
-    load_data()
-
 func create_dictionary():
     var player_info_dict = {
         "min_attack": min_attack,
