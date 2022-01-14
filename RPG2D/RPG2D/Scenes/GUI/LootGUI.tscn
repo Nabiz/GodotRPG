@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/GUI/InventorySlot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Items/#1 - Transparent Icons.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/LootGUI.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/ThemeUI/theme.tres" type="Theme" id=4]
 
 [node name="LootGUI" type="Node2D"]
 z_index = 4
@@ -13,6 +14,7 @@ margin_right = 146.0
 margin_bottom = 170.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -21,30 +23,31 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 139.0
-margin_bottom = 163.0
+margin_bottom = 175.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer2"]
 margin_right = 132.0
-margin_bottom = 20.0
+margin_bottom = 32.0
 
-[node name="TextEdit" type="TextEdit" parent="PanelContainer/VBoxContainer2/HBoxContainer2"]
-margin_right = 63.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
+[node name="TextEdit" type="Label" parent="PanelContainer/VBoxContainer2/HBoxContainer2"]
+margin_top = 2.0
+margin_right = 40.0
+margin_bottom = 30.0
+size_flags_horizontal = 7
 text = "0"
-readonly = true
+align = 2
 
 [node name="Container" type="MarginContainer" parent="PanelContainer/VBoxContainer2/HBoxContainer2"]
-margin_left = 67.0
-margin_right = 87.0
-margin_bottom = 20.0
+margin_left = 44.0
+margin_right = 64.0
+margin_bottom = 32.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 8
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 8
 
 [node name="Sprite" type="Sprite" parent="PanelContainer/VBoxContainer2/HBoxContainer2/Container"]
-position = Vector2( 11, 10 )
+position = Vector2( 10, 16 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 hframes = 16
@@ -52,15 +55,16 @@ vframes = 22
 frame = 203
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer2/HBoxContainer2"]
-margin_left = 91.0
+margin_left = 68.0
 margin_right = 132.0
-margin_bottom = 20.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 32 )
 text = "Take"
 
 [node name="HBoxContainer" type="GridContainer" parent="PanelContainer/VBoxContainer2"]
-margin_top = 24.0
+margin_top = 36.0
 margin_right = 132.0
-margin_bottom = 156.0
+margin_bottom = 168.0
 columns = 2
 
 [node name="InventorySlot" parent="PanelContainer/VBoxContainer2/HBoxContainer" instance=ExtResource( 1 )]

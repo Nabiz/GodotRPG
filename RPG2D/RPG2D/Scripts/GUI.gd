@@ -2,7 +2,9 @@ extends Control
 
 var player = null
 onready var item_stats = $ItemStats
-onready var stats_text = $Panel/VBoxContainer/MarginContainer/TextEdit
+
+onready var attack_text = $Panel/VBoxContainer/StatsContainer/AttackContainer/Attack
+onready var def_text = $Panel/VBoxContainer/StatsContainer/DefContainer/Def
 
 onready var health_bar = $Panel/VBoxContainer/HealthBar
 onready var mana_bar = $Panel/VBoxContainer/ManaBar
@@ -35,7 +37,7 @@ func _ready():
         mute_button.text = "Mute sound"
 
 func set_level_label(level):
-    level_label.text = str(level) + " lvl"
+    level_label.text = "  " + str(level) + " lvl"
 
 func set_bars_max_value(max_health, max_mana, max_exp):
     health_bar.max_value = max_health
@@ -62,11 +64,8 @@ func get_inventory_slots():
     return $Panel/VBoxContainer/GridContainerInventory.get_children()
 
 func set_stats_text():
-    stats_text.text = \
-    "Attack: " + str(player.min_attack) + "-" + str(player.max_attack) +\
-     "\nDefence: " + str(player.def) +\
-     "\nMagic Defence: " + str(player.magic_def)
-
+    attack_text.text = str(player.max_attack)
+    def_text.text = str(player.def)
 
 func _on_item_changed():
     var min_attack = 0

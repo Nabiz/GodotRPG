@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/GUI/InventorySlot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=2]
@@ -6,12 +6,82 @@
 [ext_resource path="res://Sprites/Items/#1 - Transparent Icons.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Items/ItemStats.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/Coins15.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/ThemeUI/theme.tres" type="Theme" id=7]
+[ext_resource path="res://Sprites/ThemeUI/title_font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Sprites/Font/coolvetica/coolvetica rg.otf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.588235, 0, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0.588235, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="DynamicFont" id=3]
+size = 45
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1600.0
 rect_min_size = Vector2( 320, 1080 )
+theme = ExtResource( 7 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -21,8 +91,11 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -320.0
-rect_min_size = Vector2( 320, 1080 )
+margin_left = -324.0
+margin_top = -4.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 328, 1088 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -30,63 +103,84 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 313.0
-margin_bottom = 1073.0
+margin_left = 20.0
+margin_top = 23.0
+margin_right = 308.0
+margin_bottom = 1064.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 2
 
 [node name="NickContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_left = 105.0
-margin_right = 200.0
-margin_bottom = 14.0
+margin_left = 44.0
+margin_right = 244.0
+margin_bottom = 47.0
 size_flags_horizontal = 4
 
 [node name="NameLabel" type="Label" parent="Panel/VBoxContainer/NickContainer"]
-margin_right = 64.0
-margin_bottom = 14.0
+margin_right = 135.0
+margin_bottom = 47.0
 size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
 text = "Nickname"
 
 [node name="LevelLabel" type="Label" parent="Panel/VBoxContainer/NickContainer"]
-margin_left = 68.0
-margin_right = 95.0
-margin_bottom = 14.0
-text = "1 lvl"
+margin_left = 139.0
+margin_right = 200.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 2 )
+text = " 1 lvl"
 
 [node name="HealthBar" type="ProgressBar" parent="Panel/VBoxContainer"]
-modulate = Color( 0.980392, 0.286275, 0.286275, 1 )
-margin_top = 18.0
-margin_right = 306.0
-margin_bottom = 32.0
+margin_top = 49.0
+margin_right = 288.0
+margin_bottom = 81.0
+rect_min_size = Vector2( 0, 32 )
+mouse_filter = 2
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
 step = 1.0
+value = 50.0
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="ManaBar" type="ProgressBar" parent="Panel/VBoxContainer"]
+visible = false
 modulate = Color( 0.223529, 0.235294, 0.858824, 1 )
-margin_top = 36.0
-margin_right = 306.0
-margin_bottom = 50.0
+margin_top = 75.0
+margin_right = 288.0
+margin_bottom = 95.0
 step = 1.0
 
 [node name="ExpBar" type="ProgressBar" parent="Panel/VBoxContainer"]
-modulate = Color( 0.301961, 0.803922, 0.215686, 1 )
-margin_top = 54.0
-margin_right = 306.0
-margin_bottom = 68.0
+margin_top = 83.0
+margin_right = 288.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 0, 32 )
+mouse_filter = 2
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
 step = 1.0
+value = 50.0
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="EqLabel" type="Label" parent="Panel/VBoxContainer"]
-margin_left = 118.0
-margin_top = 72.0
-margin_right = 187.0
-margin_bottom = 86.0
+margin_left = 95.0
+margin_top = 117.0
+margin_right = 192.0
+margin_bottom = 150.0
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 8 )
 text = "Equipment"
 
 [node name="GridContainerEq" type="GridContainer" parent="Panel/VBoxContainer"]
-margin_left = 53.0
-margin_top = 90.0
-margin_right = 253.0
-margin_bottom = 290.0
+margin_left = 44.0
+margin_top = 152.0
+margin_right = 244.0
+margin_bottom = 352.0
 size_flags_horizontal = 4
 columns = 3
 
@@ -125,33 +219,36 @@ margin_bottom = 200.0
 type = "shoes"
 
 [node name="InventoryLabel" type="Label" parent="Panel/VBoxContainer"]
-margin_left = 122.0
-margin_top = 294.0
-margin_right = 183.0
-margin_bottom = 308.0
+margin_left = 100.0
+margin_top = 354.0
+margin_right = 188.0
+margin_bottom = 387.0
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 8 )
 text = "Inventory"
 
 [node name="GoldContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_left = 55.0
-margin_top = 312.0
-margin_right = 251.0
-margin_bottom = 376.0
+margin_left = 62.0
+margin_top = 389.0
+margin_right = 226.0
+margin_bottom = 453.0
 size_flags_horizontal = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GoldText" type="TextEdit" parent="Panel/VBoxContainer/GoldContainer"]
-margin_right = 128.0
+[node name="GoldText" type="Label" parent="Panel/VBoxContainer/GoldContainer"]
+margin_right = 96.0
 margin_bottom = 64.0
-rect_min_size = Vector2( 128, 32 )
+rect_min_size = Vector2( 96, 64 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.807843, 0.572549, 0.113725, 1 )
 text = "1000"
-readonly = true
+align = 2
 
 [node name="TextureRect" type="CenterContainer" parent="Panel/VBoxContainer/GoldContainer"]
-margin_left = 132.0
-margin_right = 196.0
+margin_left = 100.0
+margin_right = 164.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 
@@ -164,10 +261,10 @@ vframes = 22
 frame = 202
 
 [node name="GridContainerInventory" type="GridContainer" parent="Panel/VBoxContainer"]
-margin_left = 13.0
-margin_top = 380.0
-margin_right = 293.0
-margin_bottom = 732.0
+margin_left = 4.0
+margin_top = 455.0
+margin_right = 284.0
+margin_bottom = 807.0
 size_flags_horizontal = 4
 custom_constants/vseparation = 8
 custom_constants/hseparation = 8
@@ -275,45 +372,101 @@ margin_top = 288.0
 margin_right = 280.0
 margin_bottom = 352.0
 
-[node name="StatsLabel" type="Label" parent="Panel/VBoxContainer"]
-margin_left = 124.0
-margin_top = 736.0
-margin_right = 182.0
-margin_bottom = 750.0
-size_flags_horizontal = 4
-text = "Statsitics"
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
-margin_top = 754.0
-margin_right = 306.0
-margin_bottom = 874.0
+[node name="StatsContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_left = 48.0
+margin_top = 809.0
+margin_right = 240.0
+margin_bottom = 940.0
 rect_min_size = Vector2( 0, 120 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 64
 
-[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/MarginContainer"]
-margin_right = 306.0
-margin_bottom = 120.0
-text = " Attack:
- Defence:
- Magic Defence:"
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AttackContainer" type="VBoxContainer" parent="Panel/VBoxContainer/StatsContainer"]
+margin_right = 64.0
+margin_bottom = 131.0
+size_flags_vertical = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/StatsContainer/AttackContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+
+[node name="Sprite" type="Sprite" parent="Panel/VBoxContainer/StatsContainer/AttackContainer/MarginContainer"]
+position = Vector2( 32, 32 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+hframes = 16
+vframes = 22
+frame = 89
+
+[node name="Attack" type="Label" parent="Panel/VBoxContainer/StatsContainer/AttackContainer"]
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 131.0
+custom_fonts/font = SubResource( 3 )
+text = "10"
+align = 1
+
+[node name="DefContainer" type="VBoxContainer" parent="Panel/VBoxContainer/StatsContainer"]
+margin_left = 128.0
+margin_right = 192.0
+margin_bottom = 131.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer/StatsContainer/DefContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+
+[node name="Sprite" type="Sprite" parent="Panel/VBoxContainer/StatsContainer/DefContainer/MarginContainer2"]
+position = Vector2( 32, 32 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+hframes = 16
+vframes = 22
+frame = 119
+
+[node name="Def" type="Label" parent="Panel/VBoxContainer/StatsContainer/DefContainer"]
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 131.0
+custom_fonts/font = SubResource( 3 )
+text = "12"
+align = 1
+
+[node name="OptionsLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_left = 107.0
+margin_top = 942.0
+margin_right = 181.0
+margin_bottom = 975.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 8 )
+text = "Options"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 878.0
-margin_right = 306.0
-margin_bottom = 898.0
+margin_top = 977.0
+margin_right = 288.0
+margin_bottom = 1041.0
+size_flags_horizontal = 4
+custom_constants/separation = 32
 
 [node name="MuteButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_right = 88.0
-margin_bottom = 20.0
+margin_right = 128.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 128, 64 )
 text = "Mute Sound"
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 92.0
-margin_right = 174.0
-margin_bottom = 20.0
+margin_left = 160.0
+margin_right = 288.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 128, 64 )
 text = "Quit Game"
 
 [node name="ItemStats" parent="." instance=ExtResource( 5 )]

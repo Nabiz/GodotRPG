@@ -11,6 +11,10 @@ script = ExtResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="Label" parent="." index="2"]
+margin_left = -34.11
+margin_top = -55.7173
+margin_right = 36.89
+margin_bottom = -27.7173
 text = "Bert"
 
 [node name="Shop" parent="." index="3"]

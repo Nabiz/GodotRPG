@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/NPC/Smith.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/NPC.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GUI/Shop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/ThemeUI/theme.tres" type="Theme" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -21,10 +22,11 @@ vframes = 4
 frame = 1
 
 [node name="Label" type="Label" parent="."]
-margin_left = -34.6381
-margin_top = -46.5821
-margin_right = 36.3619
-margin_bottom = -32.5821
+margin_left = -34.11
+margin_top = -56.7173
+margin_right = 36.89
+margin_bottom = -28.7173
+theme = ExtResource( 4 )
 text = "John"
 align = 1
 __meta__ = {
