@@ -40,6 +40,7 @@ func set_player_info():
     experience = player_info.experience
     exp_to_next_level = player_info.exp_to_next_level
     
+    gui.set_nick_label(player_info.nick)
     gui.money_text.text = str(player_info.money)
     
     gui.helmet_slot.set_id(player_info.helmet)

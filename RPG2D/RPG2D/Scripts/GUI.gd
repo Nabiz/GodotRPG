@@ -11,6 +11,7 @@ onready var mana_bar = $Panel/VBoxContainer/ManaBar
 
 onready var exp_bar = $Panel/VBoxContainer/ExpBar
 onready var level_label = $Panel/VBoxContainer/NickContainer/LevelLabel
+onready var nick_label = $Panel/VBoxContainer/NickContainer/NameLabel
 
 onready var money_text = $Panel/VBoxContainer/GoldContainer/GoldText
 
@@ -35,6 +36,9 @@ func _ready():
         mute_button.text = "Unmute sound"
     else:
         mute_button.text = "Mute sound"
+
+func set_nick_label(nick):
+    nick_label.text = nick
 
 func set_level_label(level):
     level_label.text = "  " + str(level) + " lvl"

@@ -16,7 +16,7 @@ var experience = 0
 var exp_to_next_level = 50
 
 var money = 0
-#var nickname = "Warrior"
+var nick = "Warrior"
 
 var helmet = 12
 var weapon = 83
@@ -49,7 +49,7 @@ func create_dictionary():
         "exp_to_next_level": exp_to_next_level,
 
         "money": money,
-        #"nickname": "nickname",
+        "nick": nick,
 
         "helmet": helmet,
         "weapon": weapon,
@@ -85,7 +85,7 @@ func set_player_info(pid):
         exp_to_next_level = pid["exp_to_next_level"]
 
         money = pid["money"]
-        #nickname = pid["nickname"]
+        nick = pid["nick"]
 
         helmet = pid["helmet"]
         weapon = pid["weapon"]
