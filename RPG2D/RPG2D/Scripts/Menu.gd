@@ -18,7 +18,7 @@ func _on_PlayButton_pressed():
         get_tree().change_scene_to(load("res://Scenes/Levels/Village.tscn"))
         PlayerInfo.load_data()
     else:
-        pass
+        get_tree().change_scene_to(load("res://Scenes/GUI/Menu/CharacterCreation.tscn"))
 
 
 var reset_count = -1
