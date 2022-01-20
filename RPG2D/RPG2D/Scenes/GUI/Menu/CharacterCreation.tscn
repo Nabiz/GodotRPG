@@ -18,14 +18,14 @@ outline_color = Color( 0.235294, 0.172549, 0.0862745, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 64
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 72
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
@@ -89,7 +89,7 @@ custom_constants/separation = 64
 margin_right = 582.0
 margin_bottom = 96.0
 rect_min_size = Vector2( 582, 96 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Name"
 
 [node name="PlayButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
@@ -97,7 +97,7 @@ margin_top = 160.0
 margin_right = 582.0
 margin_bottom = 288.0
 rect_min_size = Vector2( 576, 128 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Play"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
@@ -105,7 +105,7 @@ margin_top = 352.0
 margin_right = 582.0
 margin_bottom = 480.0
 rect_min_size = Vector2( 576, 128 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Back"
 
 [connection signal="text_changed" from="VBoxContainer/MarginContainer/VBoxContainer/TextEdit" to="." method="_on_TextEdit_text_changed"]

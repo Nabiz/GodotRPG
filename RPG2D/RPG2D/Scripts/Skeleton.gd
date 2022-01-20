@@ -3,7 +3,7 @@ extends "res://Scripts/Enemy.gd"
 func _ready():
     health = 80
     experience = 80
-    damage = 25
+    damage = 24
     step_time = 0.5
     ._ready()
 

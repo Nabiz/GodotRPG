@@ -4,7 +4,7 @@ func _ready():
     attack_effect = preload("res://Scenes/Effects/FireballEffect.tscn")
     health = 60
     experience = 80
-    damage = 25
+    damage = 24
     step_time = 0.5
     ready()
 

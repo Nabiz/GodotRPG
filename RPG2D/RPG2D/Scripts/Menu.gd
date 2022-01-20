@@ -32,3 +32,7 @@ func _on_ResetButoon_pressed():
         var directory = Directory.new()
         directory.remove("user://player.json")
         get_tree().reload_current_scene()
+
+
+func _on_CreditsButton_pressed():
+    get_tree().change_scene_to(load("res://Scenes/GUI/Menu/Credits.tscn"))
