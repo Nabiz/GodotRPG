@@ -72,13 +72,13 @@ text = "Do you want to leave current level?
 
 [node name="ChangeLevelArea4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1184, 36.27 )
-level_scene = "res://Scenes/Levels/Cmentary.tscn"
+level_scene = "res://Scenes/Levels/Cemetery.tscn"
 
 [node name="Label" parent="ChangeLevelArea4/PanelContainer/VBoxContainer" index="0"]
 text = "Do you want to leave current level?
-(Suggested level: 7-8)"
+(Suggested level: 6-8)"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -20.0
 autoplay = true

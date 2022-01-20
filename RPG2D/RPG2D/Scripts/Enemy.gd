@@ -32,6 +32,18 @@ func _ready():
     if get_node("../Pathfinding"):
         pathfinding = get_node("../Pathfinding")
 
+func ready():
+    global_position = global_position.snapped(Vector2.ONE * tile_size/2)
+    previous_position = global_position
+    input_pickable = true
+    health_bar = $Node2D/ProgressBar
+    health_bar.set_max(health)
+    health_bar.set_value(health)
+    #if get_node("../Player"):
+    #    player = get_node("../Player")
+    if get_node("../Pathfinding"):
+        pathfinding = get_node("../Pathfinding")
+        
 func attack():
     if player:
         if global_position.distance_to(player.global_position) < 1.42 * tile_size:

@@ -104,9 +104,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 margin_left = 20.0
-margin_top = 13.0
+margin_top = 21.0
 margin_right = 308.0
-margin_bottom = 1074.0
+margin_bottom = 1082.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 custom_constants/separation = 8
@@ -148,9 +148,9 @@ __meta__ = {
 [node name="ManaBar" type="ProgressBar" parent="Panel/VBoxContainer"]
 visible = false
 modulate = Color( 0.223529, 0.235294, 0.858824, 1 )
-margin_top = 75.0
+margin_top = 87.0
 margin_right = 288.0
-margin_bottom = 95.0
+margin_bottom = 107.0
 step = 1.0
 
 [node name="ExpBar" type="ProgressBar" parent="Panel/VBoxContainer"]

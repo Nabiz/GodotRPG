@@ -47,6 +47,9 @@ func set_bars_max_value(max_health, max_mana, max_exp):
     health_bar.max_value = max_health
     mana_bar.max_value = max_mana
     exp_bar.max_value = max_exp
+    if player.level == 8:
+        exp_bar.max_value = 1
+        exp_bar.value = 1
     
 func update_bars(health, mana, experience):
     health_bar.value = health
