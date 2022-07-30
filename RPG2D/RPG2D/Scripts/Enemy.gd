@@ -75,7 +75,7 @@ func take_damage(health_loss):
 func _on_Enemy_input_event(_viewport, event, _shape_idx):
     if event.is_action_released("ui_mouse_right"):
         if player:
-            if player.target != self:
+            if player.target != self and health > 0:
                 $TargetEffect.show()
                 player.set_target(self)
             else:
